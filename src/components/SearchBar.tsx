@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-function SearchBar() {
+export const SearchBar = () => {
     const history = useHistory();
     const [contractAddress, setContractAddress] = useState("");
 
@@ -29,5 +29,3 @@ function SearchBar() {
         </>
     );
 }
-
-export default SearchBar;

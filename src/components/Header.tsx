@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-function Header() {
+export const Header = () => {
   return (
     <>
       <nav className="navbar navbar-light">
@@ -17,5 +17,3 @@ function Header() {
     </>
   );
 }
-
-export default Header;

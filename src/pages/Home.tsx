@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
+import { Header, SearchBar } from '../components';
 
-function Home() {
+export const Home = () => {
   return (
     <>
       <div>
@@ -15,5 +14,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

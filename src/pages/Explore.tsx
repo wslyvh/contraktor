@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
+import { Header } from '../components';
 
-function Explore() {
+export const Explore = () => {
   return (
     <>
     <div>
@@ -13,5 +13,3 @@ function Explore() {
     </>
   );
 }
-
-export default Explore;
