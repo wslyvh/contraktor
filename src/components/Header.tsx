@@ -1,16 +1,20 @@
 
 import React from 'react';
-import { Navbar, Nav } from "react-bootstrap";
 
 function Header() {
   return (
-    <Navbar>
-      <Navbar.Brand href="/">Contraktor</Navbar.Brand>
-      <Nav className="mr-auto"></Nav>
-      <Nav>
-        <Nav.Link href="/explore">Explore</Nav.Link>
-      </Nav>
-    </Navbar>
+    <>
+      <nav className="navbar navbar-light">
+        <a className="navbar-brand" href="/">Contraktor</a>
+        <div>
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/explore">Explore</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }
 
