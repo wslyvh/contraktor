@@ -17,7 +17,7 @@ export const Explore = () => {
 
   const projectListItems = projects.map((project: any) =>
     <li key={project.name}>
-      {project.name}
+      {project.name} ({project.contracts.length})
     </li>
   );
 
