@@ -18,7 +18,7 @@ export const ExplorePage = () => {
 
   const projectListItems = projects.map((project: any) =>
     <div className="card mb-3" key={project.name}>
-      <Link to={`/projects/${project.name}`} className="text-center stretched-link" >
+      <Link to={`/explore/${project.name}`} className="text-center stretched-link" >
         <img className="card-img" src={project.logoPath} alt={project.name} />
       </Link>
     </div>

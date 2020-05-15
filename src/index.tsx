@@ -11,8 +11,8 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/"><HomePage /></Route>
           <Route exact path="/contracts/:address"><ContractPage /></Route>
-          <Route exact path="/projects/:project"><ProjectPage /></Route>
-          <Route path="/explore"><ExplorePage /></Route>
+          <Route exact path="/explore"><ExplorePage /></Route>
+          <Route exact path="/explore/:name"><ProjectPage /></Route>
           <Redirect to="/" />
         </Switch>
     </BrowserRouter>
