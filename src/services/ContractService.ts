@@ -1,7 +1,6 @@
 import ALL_PROJECT_DATA from "../data/projects";
 import { Contract } from "../types";
-
-const API_KEY = "RQW7FJGXRBIHPM5EYQSVPY96Q2EV2Q9RR2"; 
+import { ETHERSCAN_API_KEY } from "../constants";
 
 export async function getContracts(): Promise<Contract[]> { 
     const contracts = new Array<Contract>();
@@ -24,7 +23,7 @@ export async function getContract(address: string): Promise<Contract | undefined
 }
 
 export async function getContractFromEtherscan(address: string): Promise<Contract | undefined> { 
-    const response = await fetch(`https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=${API_KEY}`);
+    const response = await fetch(`https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=${ETHERSCAN_API_KEY}`);
     const body = await response.json();
 
     if (body && body.result) {

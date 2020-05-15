@@ -2,8 +2,7 @@
 import React from 'react';
 import { Contract, Address } from '../types';
 import { Link } from 'react-router-dom';
-
-const currentNetwork = "mainnet"; // todo
+import { CURRENT_NETWORK } from '../constants';
 
 interface ContractListItemProps { 
   contract: Contract;
@@ -11,7 +10,7 @@ interface ContractListItemProps {
 
 export const ContractListItem = (props: ContractListItemProps) => {
   const contract = props.contract;
-  const address = contract.addresses.find((i: Address) => i.network.toLowerCase() === currentNetwork.toLowerCase());
+  const address = contract.addresses.find((i: Address) => i.network.toLowerCase() === CURRENT_NETWORK.toLowerCase());
 
   if (address) { 
     return (
