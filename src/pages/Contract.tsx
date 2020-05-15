@@ -19,7 +19,6 @@ export const ContractPage = () => {
     if (address && valid) { 
       console.log("getContract", address)
       const contract = await getContract(address);
-      console.log("contract", contract);
 
       if (contract) { 
         setContract(contract);
