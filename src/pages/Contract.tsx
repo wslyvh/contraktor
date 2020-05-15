@@ -3,7 +3,7 @@ import { Header } from '../components';
 import { useParams } from 'react-router-dom';
 import { isContractAddress } from '../utils/web3';
 
-export const Contract = () => {
+export const ContractPage = () => {
   const { address } = useParams();
   const valid = isContractAddress(address);
   console.log("address", address, valid);

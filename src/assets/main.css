@@ -11,3 +11,25 @@ body {
 ul { 
   list-style-type: none;
 }
+
+.card { 
+  border: 0;
+  border-top: 3px solid rgb(43, 116, 137);
+  height: 140px;
+  box-shadow: 0 0 3px rgba(0,0,0,.1);
+  position: relative;
+}
+
+.card img { 
+  padding: 40px;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

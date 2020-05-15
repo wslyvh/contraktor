@@ -1,3 +1,4 @@
-export { Contract } from './Contract'
-export { Explore } from './Explore'
-export { Home } from "./Home";
+export { ContractPage } from './Contract'
+export { ExplorePage } from './Explore'
+export { HomePage } from "./Home";
+export { ProjectPage } from "./Project";

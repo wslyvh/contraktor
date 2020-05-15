@@ -1,8 +1,10 @@
 import { legos } from "@studydefi/money-legos";
+import { Aave, Compound, ENS, Sets, Uniswap } from "../assets/logos/index"
 
 const ALL_PROJECT_DATA = [
     {
 		"name": "Aave",
+		"logoPath": Aave,
 		"contracts": [{
 			"name": "LendingPoolAddressesProvider",
 			"abi": legos.aave.LendingPoolAddressesProvider.abi,
@@ -31,6 +33,7 @@ const ALL_PROJECT_DATA = [
 	},
 	{
 		"name": "Compound",
+		"logoPath": Compound,
 		"contracts": [{
 			"name": "comptroller",
 			"abi": legos.compound.comptroller.abi,
@@ -48,11 +51,18 @@ const ALL_PROJECT_DATA = [
 		}]
 	},
 	{
-		"name": "ENS",
+		"name": "ENS Domains",
+		"logoPath": ENS,
+		"contracts": []
+	},
+	{
+		"name": "Token Sets",
+		"logoPath": Sets,
 		"contracts": []
 	},
 	{
 		"name": "Uniswap v1",
+		"logoPath": Uniswap,
 		"contracts": [{
 			"name": "factory",
 			"abi": legos.uniswap.factory.abi,

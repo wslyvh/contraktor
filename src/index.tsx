@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import { Contract, Explore, Home } from './pages/';
+import { ContractPage, ExplorePage, HomePage, ProjectPage } from './pages/';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/main.css';
 
@@ -9,9 +9,10 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
         <Switch>
-          <Route exact path="/"><Home /></Route>
-          <Route exact path="/contracts/:address"><Contract /></Route>
-          <Route path="/explore"><Explore /></Route>
+          <Route exact path="/"><HomePage /></Route>
+          <Route exact path="/contracts/:address"><ContractPage /></Route>
+          <Route exact path="/projects/:project"><ProjectPage /></Route>
+          <Route path="/explore"><ExplorePage /></Route>
           <Redirect to="/" />
         </Switch>
     </BrowserRouter>

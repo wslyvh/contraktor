@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, SearchBar } from '../components';
 
-export const Home = () => {
+export const HomePage = () => {
   return (
     <>
       <div>

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Header } from '../components';
 import { getProjects } from '../services/ProjectService';
 import { Project } from '../types';
+import { Link } from 'react-router-dom';
 
-export const Explore = () => {
+export const ExplorePage = () => {
   const [projects, setProjects] = useState(new Array<Project>());
 
   const fetchProjects = async () => { 
@@ -16,9 +17,11 @@ export const Explore = () => {
   }, []);
 
   const projectListItems = projects.map((project: any) =>
-    <li key={project.name}>
-      {project.name} ({project.contracts.length})
-    </li>
+    <div className="card mb-3" key={project.name}>
+      <Link to={`/projects/${project.name}`} className="text-center stretched-link" >
+        <img className="card-img" src={project.logoPath} alt={project.name} />
+      </Link>
+    </div>
   );
 
   return (
@@ -28,9 +31,10 @@ export const Explore = () => {
     </div>
     <div>
       <h2>Explore</h2>
-      <ul>
+      
+      <div className="card-columns">
         {projectListItems}
-      </ul>
+      </div>
     </div>
     </>
   );

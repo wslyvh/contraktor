@@ -1,5 +1,6 @@
 export type Project = { 
     name: string;
+    logoPath: string;
     contracts: Array<Contract>;
 }
 
