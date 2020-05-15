@@ -18,6 +18,13 @@ ul {
   height: 140px;
   box-shadow: 0 0 3px rgba(0,0,0,.1);
   position: relative;
+  transform: translateY(0px);
+  transition: .5s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  transition: .5s;
 }
 
 .card img { 
