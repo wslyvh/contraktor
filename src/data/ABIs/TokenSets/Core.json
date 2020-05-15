@@ -1,0 +1,1049 @@
+[{
+	"constant": false,
+	"inputs": [{
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "withdrawModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_factory",
+		"type": "address"
+	}],
+	"name": "validFactories",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_exchangeId",
+		"type": "uint8"
+	}, {
+		"name": "_exchange",
+		"type": "address"
+	}],
+	"name": "removeExchange",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "",
+		"type": "bytes32"
+	}],
+	"name": "timeLockedUpgrades",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}],
+	"name": "reenableSet",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}, {
+		"name": "_toExclude",
+		"type": "uint256"
+	}],
+	"name": "redeemAndWithdrawTo",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "redeem",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_module",
+		"type": "address"
+	}],
+	"name": "addModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "exchanges",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_factory",
+		"type": "address"
+	}],
+	"name": "addFactory",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchDeposit",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_owner",
+		"type": "address"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchIncrementTokenOwnerModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_priceLibrary",
+		"type": "address"
+	}],
+	"name": "removePriceLibrary",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "deposit",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_factory",
+		"type": "address"
+	}],
+	"name": "removeFactory",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_exchangeId",
+		"type": "uint8"
+	}, {
+		"name": "_exchange",
+		"type": "address"
+	}],
+	"name": "addExchange",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}, {
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}],
+	"name": "batchTransferModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_operationState",
+		"type": "uint8"
+	}],
+	"name": "setOperationState",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "setTokens",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchTransferBalanceModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_exchangeId",
+		"type": "uint8"
+	}],
+	"name": "exchangeIds",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_burnAddress",
+		"type": "address"
+	}, {
+		"name": "_incrementAddress",
+		"type": "address"
+	}, {
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "redeemModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "internalTransfer",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_factory",
+		"type": "address"
+	}, {
+		"name": "_components",
+		"type": "address[]"
+	}, {
+		"name": "_units",
+		"type": "uint256[]"
+	}, {
+		"name": "_naturalUnit",
+		"type": "uint256"
+	}, {
+		"name": "_name",
+		"type": "bytes32"
+	}, {
+		"name": "_symbol",
+		"type": "bytes32"
+	}, {
+		"name": "_callData",
+		"type": "bytes"
+	}],
+	"name": "createSet",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_module",
+		"type": "address"
+	}],
+	"name": "validModules",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "transferProxy",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [],
+	"name": "renounceOwnership",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "operationState",
+	"outputs": [{
+		"name": "",
+		"type": "uint8"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_recipient",
+		"type": "address"
+	}, {
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "issueTo",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}],
+	"name": "disableSet",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "timeLockPeriod",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_recipient",
+		"type": "address"
+	}, {
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "issueInVaultModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_componentOwner",
+		"type": "address"
+	}, {
+		"name": "_setRecipient",
+		"type": "address"
+	}, {
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "issueModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "issue",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "owner",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "isOwner",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_timeLockPeriod",
+		"type": "uint256"
+	}],
+	"name": "setTimeLockPeriod",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_module",
+		"type": "address"
+	}],
+	"name": "removeModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_priceLibrary",
+		"type": "address"
+	}],
+	"name": "validPriceLibraries",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "issueInVault",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "redeemInVault",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "state",
+	"outputs": [{
+		"name": "operationState",
+		"type": "uint8"
+	}, {
+		"name": "transferProxy",
+		"type": "address"
+	}, {
+		"name": "vault",
+		"type": "address"
+	}, {
+		"name": "transferProxyInstance",
+		"type": "address"
+	}, {
+		"name": "vaultInstance",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_owner",
+		"type": "address"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchDecrementTokenOwnerModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchDepositModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "priceLibraries",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}],
+	"name": "disabledSets",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "depositModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchWithdraw",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_priceLibrary",
+		"type": "address"
+	}],
+	"name": "addPriceLibrary",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_recipient",
+		"type": "address"
+	}, {
+		"name": "_set",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "redeemTo",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "newOwner",
+		"type": "address"
+	}],
+	"name": "transferOwnership",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "withdraw",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "modules",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "vault",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}, {
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}],
+	"name": "transferModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "factories",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}, {
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}],
+	"name": "batchWithdrawModule",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_set",
+		"type": "address"
+	}],
+	"name": "validSets",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"inputs": [{
+		"name": "_transferProxy",
+		"type": "address"
+	}, {
+		"name": "_vault",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "constructor"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_setAddress",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "SetIssued",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_setAddress",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "SetRedeemed",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "_setTokenAddress",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "_factory",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "_components",
+		"type": "address[]"
+	}, {
+		"indexed": false,
+		"name": "_units",
+		"type": "uint256[]"
+	}, {
+		"indexed": false,
+		"name": "_naturalUnit",
+		"type": "uint256"
+	}, {
+		"indexed": false,
+		"name": "_name",
+		"type": "bytes32"
+	}, {
+		"indexed": false,
+		"name": "_symbol",
+		"type": "bytes32"
+	}],
+	"name": "SetTokenCreated",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_factory",
+		"type": "address"
+	}],
+	"name": "FactoryAdded",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_factory",
+		"type": "address"
+	}],
+	"name": "FactoryRemoved",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_exchangeId",
+		"type": "uint8"
+	}, {
+		"indexed": false,
+		"name": "_exchange",
+		"type": "address"
+	}],
+	"name": "ExchangeAdded",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_exchangeId",
+		"type": "uint8"
+	}],
+	"name": "ExchangeRemoved",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_module",
+		"type": "address"
+	}],
+	"name": "ModuleAdded",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_module",
+		"type": "address"
+	}],
+	"name": "ModuleRemoved",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_set",
+		"type": "address"
+	}],
+	"name": "SetDisabled",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_set",
+		"type": "address"
+	}],
+	"name": "SetReenabled",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_priceLibrary",
+		"type": "address"
+	}],
+	"name": "PriceLibraryAdded",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_priceLibrary",
+		"type": "address"
+	}],
+	"name": "PriceLibraryRemoved",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_upgradeHash",
+		"type": "bytes32"
+	}, {
+		"indexed": false,
+		"name": "_timestamp",
+		"type": "uint256"
+	}],
+	"name": "UpgradeRegistered",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_prevState",
+		"type": "uint8"
+	}, {
+		"indexed": false,
+		"name": "_newState",
+		"type": "uint8"
+	}],
+	"name": "OperationStateChanged",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "previousOwner",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "newOwner",
+		"type": "address"
+	}],
+	"name": "OwnershipTransferred",
+	"type": "event"
+}]

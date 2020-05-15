@@ -1,5 +1,6 @@
 import { legos } from "@studydefi/money-legos";
-import { Aave, Compound, ENS, Sets, Uniswap } from "../assets/logos/index"
+import { Aave, Compound, ENS, ERC20, Kyber, Maker, Sets, Uniswap } from "../assets/logos/index"
+import { Compound_Governance_ABI, Compound_cDAI_ABI, Compound_cETH_ABI, ERC20_StandardToken_ABI, TokenSets_Core_ABI } from "../data/ABIs";
 
 const ALL_PROJECT_DATA = [
     {
@@ -35,18 +36,38 @@ const ALL_PROJECT_DATA = [
 		"name": "Compound",
 		"logoPath": Compound,
 		"contracts": [{
-			"name": "comptroller",
+			"name": "Comptroller",
 			"abi": legos.compound.comptroller.abi,
 			"addresses": [
 				{ "network": "mainnet", "address": legos.compound.comptroller.address },
 				{ "network": "rinkeby", "address": "0x2eaa9d77ae4d8f9cdd9faacd44016e746485bddb" }
 			]
 		}, {
-			"name": "priceOracle",
+			"name": "Governance",
+			"abi": Compound_Governance_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0xc0da01a04c3f3e0be433606045bb7017a7323e38" }
+			]
+		}, {
+			"name": "PriceOracle",
 			"abi": legos.compound.priceOracle.abi,
 			"addresses": [
 				{ "network": "mainnet", "address": legos.compound.priceOracle.address },
 				{ "network": "rinkeby", "address": "0x5722a3f60fa4f0ec5120dcd6c386289a4758d1b2" }
+			]
+		}, {
+			"name": "cDAI",
+			"abi": Compound_cDAI_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0x5d3a536e4d6dbd6114cc1ead35777bab948e3643' },
+				{ "network": "rinkeby", "address": "0x6d7f0754ffeb405d23c51ce938289d4835be3b14" }
+			]
+		}, {
+			"name": "cETH",
+			"abi": Compound_cETH_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5' },
+				{ "network": "rinkeby", "address": "0xd6801a1dffcd0a410336ef88def4320d6df1883e" }
 			]
 		}]
 	},
@@ -56,9 +77,73 @@ const ALL_PROJECT_DATA = [
 		"contracts": []
 	},
 	{
+		"name": "ERC20 Tokens",
+		"logoPath": ERC20,
+		"contracts": [{
+			"name": "TrueUSD",
+			"abi": ERC20_StandardToken_ABI,
+			"addresses": [
+				{ "network": "kovan", "address": "0xadb015d61f4beb2a712d237d9d4c5b75bafefd7b" }
+			]
+		}, {
+			"name": "DAI",
+			"abi": ERC20_StandardToken_ABI,
+			"addresses": [
+				{ "network": "kovan", "address": '0x1d82471142f0aeeec9fc375fc975629056c26cee' },
+			]
+		}]
+	},
+	{
+		"name": "Kyber",
+		"logoPath": Kyber,
+		"contracts": [{
+			"name": "Network",
+			"abi": legos.kyber.network.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.kyber.network.address }
+			]
+		}]
+	},
+	{
+		"name": "Maker",
+		"logoPath": Maker,
+		"contracts": [{
+			"name": "dssCdpManager",
+			"abi": legos.maker.dssCdpManager.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.maker.dssCdpManager.address }
+			]
+		}, {
+			"name": "dssProxyActions",
+			"abi": legos.maker.dssProxyActions.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.maker.dssProxyActions.address }
+			]
+		}, {
+			"name": "ethUsdPriceFeed",
+			"abi": legos.maker.ethUsdPriceFeed.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.maker.ethUsdPriceFeed.address }
+			]
+		}, {
+			"name": "proxyRegistry",
+			"abi": legos.maker.proxyRegistry.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.maker.proxyRegistry.address }
+			]
+		}]
+	},
+	{
 		"name": "Token Sets",
 		"logoPath": Sets,
-		"contracts": []
+		"contracts": [{
+			"name": "Core",
+			"abi": TokenSets_Core_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xf55186CC537E7067EA616F2aaE007b4427a120C8' },
+				{ "network": "kovan", "address": '0x3ee64Fe0b9246Ae52845F01A79c4b3A6D252289a' },
+			]
+		}]
 	},
 	{
 		"name": "Uniswap v1",
