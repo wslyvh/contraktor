@@ -16,10 +16,12 @@ export const ContractDetails = (props: ContractProps) => {
   return (
     <>
       <div>
-        <h2>{props.contract?.name}</h2>
-        <h3 className="text-muted small">
-          <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer">{props.currentAddress}</a>
-        </h3>
+        <h2>
+          {props.contract?.name} 
+          <small className="ml-2">
+            <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer" className="small">{props.currentAddress}</a>
+          </small>
+        </h2>
 
         <div className="card-deck">
           <BalanceCard address={props.currentAddress} />

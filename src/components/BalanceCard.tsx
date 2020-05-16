@@ -30,7 +30,7 @@ export const BalanceCard = (props: ContractProps) => {
 
   return (
     <>
-      <div className="card">
+      <div className="card text-left">
         <div className="card-body">
           <p className="card-text">Balance: {parseEther(balance)}</p>
         </div>

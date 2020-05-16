@@ -34,11 +34,11 @@ export const TransactionCard = (props: ContractProps) => {
 
   return (
     <>
-      <div className="card">
+      <div className="card text-left">
         <div className="card-body">
           <p className="card-text">
-            Latest transaction: {parseTimestampToMinutesAgo(transaction.timestamp)} <br/>
-            <small><a href={`${ETHERSCAN_TX_LINK}${transaction.hash}`} target="_blank" rel="noopener noreferrer">{transaction.hash}</a></small>
+            Latest activity: {parseTimestampToMinutesAgo(transaction.timestamp)} <br/>
+            <small><a href={`${ETHERSCAN_TX_LINK}${transaction.hash}`} target="_blank" rel="noopener noreferrer" className="small">View transaction</a></small>
           </p>
         </div>
       </div>
