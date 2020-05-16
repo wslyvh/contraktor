@@ -11,6 +11,7 @@ export const ContractPage = () => {
   
   const fetchContract = async () => { 
     const contract = await getContract(address);
+    
     setContract(contract);   
     setLoading(false);
   }
@@ -30,7 +31,7 @@ export const ContractPage = () => {
 
   return (
     <>
-      <ContractDetails contract={contract} />
+      <ContractDetails currentAddress={address} contract={contract} />
     </>
   );
 }

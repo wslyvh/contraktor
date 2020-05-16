@@ -12,19 +12,19 @@ ul {
   list-style-type: none;
 }
 
-.card { 
+.project-card { 
   border-top: 3px solid #17a2b8;
   height: 140px;
   transform: translateY(0px);
   transition: .5s;
 }
 
-.card:hover {
+.project-card:hover {
   transform: translateY(-3px);
   transition: .5s;
 }
 
-.card img { 
+.project-card img { 
   padding: 40px;
   max-height: 100%;
   max-width: 100%;

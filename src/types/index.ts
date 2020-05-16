@@ -14,3 +14,13 @@ export type Address = {
     address: string,
     network: "mainnet" | "ropsten" | "rinkeby" | "kovan" | "goerli"
 }
+
+export type Transaction = { 
+    blockHash: string,
+    blockNumber: number,
+    from: string,
+    to: string,
+    hash: string,
+    timestamp: number,
+    value: number
+}

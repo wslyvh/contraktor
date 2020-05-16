@@ -12,10 +12,9 @@ export const ProjectPage = () => {
 
   const fetchProject = async () => { 
     const project = await getProject(name);
-    if (project) { 
-      setProject(project);
-      setLoading(false);
-    }
+    
+    setProject(project);
+    setLoading(false);
   }
 
   useEffect(() => {

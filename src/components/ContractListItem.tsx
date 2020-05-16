@@ -21,7 +21,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
     return (
       <>
         <li className="list-group-item d-flex justify-content-between align-items-center">
-          <Link to={`/contracts/${address.address}`}>
+          <Link to={`/contracts/${address.address}`} className="stretched-link">
             {contract.name}
           </Link>
           <div>

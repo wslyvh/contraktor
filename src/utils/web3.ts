@@ -24,3 +24,9 @@ export function getProvider(network?: "homestead" | "rinkeby" | "ropsten" | "kov
 
     return ethers.getDefaultProvider();
 }
+
+export function parseEther(wei: number): string { 
+    const ether = ethers.utils.formatEther(wei.toString())
+    
+    return ether;
+}

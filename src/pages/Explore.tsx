@@ -10,6 +10,7 @@ export const ExplorePage = () => {
 
   const fetchProjects = async () => { 
     const projects = await getProjects();
+
     setProjects(projects);
     setLoading(false);
   }
@@ -19,7 +20,7 @@ export const ExplorePage = () => {
   }, []);
 
   const projectListItems = projects.map((project: any) =>
-    <div className="card shadow-sm bg-white rounded" key={project.name}>
+    <div className="card project-card shadow-sm bg-white rounded" key={project.name}>
       <Link to={`/explore/${project.name}`} className="text-center stretched-link" >
         <img className="card-img" src={project.logoPath} alt={project.name} />
       </Link>
