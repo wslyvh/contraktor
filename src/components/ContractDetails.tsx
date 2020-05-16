@@ -19,7 +19,7 @@ export const ContractDetails = (props: ContractProps) => {
         <h2>
           {props.contract?.name} 
           <small className="ml-2">
-            <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer" className="small">{props.currentAddress}</a>
+            <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer" className="small text-info">{props.currentAddress}</a>
           </small>
         </h2>
 
