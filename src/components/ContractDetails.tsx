@@ -6,21 +6,30 @@ import { TransactionCard } from './TransactionCard';
 import { ETHERSCAN_ADDRESS_LINK } from '../constants';
 import { ethers } from 'ethers';
 import { Loading } from '.';
-import { parseAddress } from '../utils/web3';
+import { parseAddress, getProvider } from '../utils/web3';
 
 interface ContractProps { 
   currentAddress: string;
-  contract?: Contract;
+  contract: Contract;
 }
 
 export const ContractDetails = (props: ContractProps) => {
+  const provider = getProvider();
   const [loading, setLoading] = useState(true);
-  const [contract, setContract] = useState<Contract | undefined>(undefined);
+  const [functions, setFunctions] = useState({
+    constants: new Array<any>(),
+    functions: new Array<any>(),
+    events: new Array<any>()
+  });
   
   const parseContract = async () => { 
-    const contract = ethers
+    const contract = new ethers.Contract(props.currentAddress, props.contract.abi, provider);
+
+    const constants = contract.interface.abi.filter((member: any) => member.constant === true);
+    const functions = contract.interface.abi.filter((member: any) => member.constant === false);
+    const events = contract.interface.abi.filter((member: any) => member.type === "event");
     
-    // setContract(contract);   
+    setFunctions({ constants, functions, events })
     setLoading(false);
   }
 
@@ -32,6 +41,24 @@ export const ContractDetails = (props: ContractProps) => {
   if (loading) { 
     return <Loading />
   } 
+
+  const constantItems = functions.constants.map((func: any) => 
+    <div key={`constant-${func.name}-${func.inputs.length}`} className="alert alert-primary" role="alert">
+      {func.name}
+    </div>
+  );
+
+  const functionItems = functions.functions.map((func: any) =>
+    <div key={`function-${func.name}-${func.inputs.length}`} className="alert alert-success" role="alert">
+      {func.name}
+    </div>
+  );
+
+  const eventItems = functions.events.map((func: any) =>
+    <div key={`event-${func.name}-${func.inputs.length}`} className="alert alert-warning" role="alert">
+      {func.name}
+    </div>
+  );
 
   return (
     <>
@@ -50,9 +77,23 @@ export const ContractDetails = (props: ContractProps) => {
           <TransactionCard address={props.currentAddress} />
         </div>
 
-        {/* <div className="row">
-          Current state
-        </div> */}
+        <div className="mt-3 text-left">
+          <h3>Constant</h3>
+          <div>
+            {constantItems}
+          </div>
+
+          <h3>Functions</h3>
+          <div>
+            {functionItems}
+          </div>
+
+          <h3>Events</h3>
+          <div>
+            {eventItems}
+          </div>
+        </div>
+
       </div>
     </>
   );
