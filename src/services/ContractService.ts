@@ -1,6 +1,7 @@
 import ALL_PROJECT_DATA from "../data/projects";
 import { Contract } from "../types";
 import { ETHERSCAN_API_KEY } from "../constants";
+import { isContractAddress } from "../utils/web3";
 
 export async function getContracts(): Promise<Contract[]> { 
     const contracts = new Array<Contract>();
@@ -12,6 +13,12 @@ export async function getContracts(): Promise<Contract[]> {
 }
 
 export async function getContract(address: string): Promise<Contract | undefined> { 
+    const isValidAddress = await isContractAddress(address);
+    if (!isValidAddress) { 
+        console.log("No valid contract address", address);
+        return;
+    }
+    
     const contracts = await getContracts();
     let contract = contracts.find((i: Contract) => i.addresses.find(x => x.address === address));
 

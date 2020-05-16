@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Notification } from '../components';
+import { Notification, Loading } from '../components';
 import { getProjects } from '../services/ProjectService';
 import { Project } from '../types';
 import { Link } from 'react-router-dom';
 
 export const ExplorePage = () => {
+  const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState(new Array<Project>());
 
   const fetchProjects = async () => { 
     const projects = await getProjects();
     setProjects(projects);
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -24,6 +26,10 @@ export const ExplorePage = () => {
     </div>
   );
 
+  if (loading) { 
+    return <Loading />
+  } 
+  
   if (!projects?.length) { 
     return <Notification type="info" message={"No projects found"} />
   } 
