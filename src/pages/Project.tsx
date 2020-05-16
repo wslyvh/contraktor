@@ -40,7 +40,7 @@ export const ProjectPage = () => {
       <h2>{project.name}</h2>
       
       <h3>Contracts</h3>
-      <ul>
+      <ul className="list-group">
         {contractListItems}
       </ul>
     </>
