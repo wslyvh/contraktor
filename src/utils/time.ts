@@ -11,15 +11,15 @@ export function parseTimestampToMinutesAgo(timestamp: number) {
     }
 
     if (seconds > 60 * 24 * 3600) {
-      return "a few months ago";
+      return Math.floor(seconds / (60 * 12 * 3600)) + " months ago";
     }
 
-    if (seconds > 30 * 24 * 3600) {
+  if (seconds > 30 * 24 * 3600) {
       return "a month ago";
     }
 
     if (seconds > 14 * 24 * 3600) {
-      return "a few weeks ago";
+      return Math.floor(seconds / (24 * 3600) / 7) + " weeks ago";
     }
 
     if (seconds > 7 * 24 * 3600) {
@@ -27,18 +27,22 @@ export function parseTimestampToMinutesAgo(timestamp: number) {
     }
 
     if (seconds > 2 * 24 * 3600) {
-       return "a few days ago";
+      return Math.floor(seconds / (60 * 3600)) + " days ago";
     }
     
     if (seconds > 24 * 3600) {
-       return "yesterday";
+      return "yesterday";
     }
 
     if (seconds > 3600) {
-       return "a few hours ago";
+      return Math.floor(seconds / 3600) + " hours ago";
     }
 
     if (seconds > 60) {
-       return Math.floor(seconds / 60) + " minutes ago";
+      return Math.floor(seconds / 60) + " minutes ago";
+    }
+
+    if (seconds < 60) {
+      return "a few seconds ago";
     }
 }
