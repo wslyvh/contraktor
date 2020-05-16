@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <>
       <nav className="navbar navbar-light">
-        <a className="navbar-brand" href="/">Contraktor</a>
+        <a className="navbar-brand text-info" href="/">Contraktor</a>
         <div>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">

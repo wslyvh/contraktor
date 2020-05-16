@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Header } from '../components';
+import { Notification, ContractDetails } from '../components';
 import { useParams } from 'react-router-dom';
 import { isContractAddress } from '../utils/web3';
 import { Contract } from '../types';
@@ -17,7 +17,6 @@ export const ContractPage = () => {
 
   const fetchContract = async () => { 
     if (address && valid) { 
-      console.log("getContract", address)
       const contract = await getContract(address);
 
       if (contract) { 
@@ -36,28 +35,17 @@ export const ContractPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [valid]);
 
+  if (!valid) { 
+    return <Notification type="info" message={"No valid contract address"} />
+  }
+
   if (!contract) { 
-    return (
-      <>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <p>Contract not found..</p>
-      </div>
-      </>
-    );  
-  } 
+    return <Notification type="info" message={"Contract not found"} />
+  }
 
   return (
     <>
-    <div>
-      <Header />
-    </div>
-    <div>
-      <h2>Contract</h2>
-      <h3 className="text-muted small">{address} <small>{contract.name}</small></h3>
-    </div>
+      <ContractDetails contract={contract} />
     </>
   );
 }

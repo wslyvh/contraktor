@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Header } from '../components';
+import { Notification } from '../components';
 import { useParams } from 'react-router-dom';
 import { getProject } from '../services/ProjectService';
 import { Project, Contract } from '../types';
@@ -12,7 +12,6 @@ export const ProjectPage = () => {
   const fetchProject = async () => { 
     const project = await getProject(name);
     if (project) { 
-      console.log(project);
       setProject(project);
     }
   }
@@ -27,31 +26,17 @@ export const ProjectPage = () => {
   );
 
   if (!project) { 
-    return (
-      <>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <p>Project not found..</p>
-      </div>
-      </>
-    );  
+    return <Notification type="info" message={"Project not found"} />
   } 
 
   return (
     <>
-    <div>
-      <Header />
-    </div>
-    <div>
       <h2>{project.name}</h2>
       
       <h3>Contracts</h3>
       <ul>
         {contractListItems}
       </ul>
-    </div>
     </>
   );  
 }

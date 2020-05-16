@@ -13,11 +13,8 @@ ul {
 }
 
 .card { 
-  border: 0;
-  border-top: 3px solid rgb(43, 116, 137);
+  border-top: 3px solid #17a2b8;
   height: 140px;
-  box-shadow: 0 0 3px rgba(0,0,0,.1);
-  position: relative;
   transform: translateY(0px);
   transition: .5s;
 }

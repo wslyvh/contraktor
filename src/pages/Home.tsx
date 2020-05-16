@@ -1,14 +1,10 @@
 import React from 'react';
-import { Header, SearchBar } from '../components';
+import { SearchBar } from '../components';
 
 export const HomePage = () => {
   return (
     <>
-      <div>
-        <Header />
-      </div>
-      <div>
-        <br/><br/>
+      <div className="mt-5">
         <SearchBar />
       </div>
     </>

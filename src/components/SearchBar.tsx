@@ -21,9 +21,7 @@ export const SearchBar = () => {
                     <input className="form-control" placeholder="Enter contract address.." 
                             value={contractAddress} onChange={e => setContractAddress(e.target.value)} />
 
-                    <br/>
-
-                    <button type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
+                    <button type="submit" className="btn btn-info mt-3" onClick={handleClick}>Submit</button>
                 </form>
             </div>
         </>
