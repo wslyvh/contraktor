@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { BaseProvider } from "ethers/providers";
+import { InjectedConnector } from "@web3-react/injected-connector";
 
 export async function isContractAddress(address: string): Promise<boolean> {
     try {
@@ -24,6 +25,10 @@ export function getProvider(network?: "homestead" | "rinkeby" | "ropsten" | "kov
 
     return ethers.getDefaultProvider();
 }
+
+export const Injected = new InjectedConnector({
+    supportedChainIds: [1, 3, 4, 5, 42]
+});
 
 export function parseEther(wei: number): string { 
     const ether = ethers.utils.formatEther(wei.toString())
