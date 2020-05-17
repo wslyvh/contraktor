@@ -1,6 +1,6 @@
 import { legos } from "@studydefi/money-legos";
 import { Aave, Compound, ENS, ERC20, Kyber, Maker, Sets, Uniswap } from "../assets/logos/index"
-import { Compound_Governance_ABI, Compound_cDAI_ABI, Compound_cETH_ABI, ERC20_StandardToken_ABI, TokenSets_Core_ABI } from "../data/ABIs";
+import { Compound_Governance_ABI, Compound_cDAI_ABI, Compound_cETH_ABI, ERC20_ABI, TokenSets_Core_ABI } from "../data/ABIs";
 
 const ALL_PROJECT_DATA = [
     {
@@ -80,16 +80,41 @@ const ALL_PROJECT_DATA = [
 		"name": "ERC20 Tokens",
 		"logoPath": ERC20,
 		"contracts": [{
-			"name": "TrueUSD",
-			"abi": ERC20_StandardToken_ABI,
+			"name": "DAI",
+			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "kovan", "address": "0xadb015d61f4beb2a712d237d9d4c5b75bafefd7b" }
+				{ "network": "mainnet", "address": legos.erc20.dai.address},
+				{ "network": "kovan", "address": '0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa' },
 			]
 		}, {
-			"name": "DAI",
-			"abi": ERC20_StandardToken_ABI,
+			"name": "BAT",
+			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "kovan", "address": '0x1d82471142f0aeeec9fc375fc975629056c26cee' },
+				{ "network": "mainnet", "address": legos.erc20.bat.address }
+			]
+		}, {
+			"name": "REP",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.erc20.rep.address }
+			]
+		}, {
+			"name": "USDC",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.erc20.usdc.address }
+			]
+		}, {
+			"name": "WETH",
+			"abi": legos.erc20.weth.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.erc20.weth.address }
+			]
+		}, {
+			"name": "ZRX",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": legos.erc20.zrx.address }
 			]
 		}]
 	},
