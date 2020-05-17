@@ -12,6 +12,11 @@ ul {
   list-style-type: none;
 }
 
+.address-icon {
+  max-width: 21px;
+  max-height: 21px;
+}
+
 .project-card { 
   border-top: 3px solid #17a2b8;
   height: 140px;
