@@ -1,6 +1,6 @@
 import { legos } from "@studydefi/money-legos";
 import { Aave, Compound, ENS, ERC20, Kyber, Maker, Sets, Uniswap } from "../assets/logos/index"
-import { Compound_Governance_ABI, Compound_cDAI_ABI, Compound_cETH_ABI, ERC20_ABI, TokenSets_Core_ABI } from "../data/ABIs";
+import { Compound_Governance_ABI, Compound_cDAI_ABI, Compound_cETH_ABI, ERC20_ABI, TokenSets_Core_ABI, ENS_Registry_ABI } from "../data/ABIs";
 
 const ALL_PROJECT_DATA = [
     {
@@ -74,7 +74,16 @@ const ALL_PROJECT_DATA = [
 	{
 		"name": "ENS Domains",
 		"logoPath": ENS,
-		"contracts": []
+		"contracts": [{
+			"name": "Registry",
+			"abi": ENS_Registry_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e" },
+				{ "network": "ropsten", "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e" },
+				{ "network": "rinkeby", "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e" },
+				{ "network": "goerli", "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e" },
+			]
+		}]
 	},
 	{
 		"name": "ERC20 Tokens",
