@@ -2,11 +2,11 @@ import { ethers } from "ethers";
 import { BaseProvider } from "ethers/providers";
 import { InjectedConnector } from "@web3-react/injected-connector";
 
-export async function isContractAddress(address: string): Promise<boolean> {
+export async function isContractAddress(address: string, provider?: BaseProvider): Promise<boolean> {
     try {
         const getAddress = ethers.utils.getAddress(address);
-        const provider = getProvider();
-        const code = await provider.getCode(getAddress);
+        const baseProvider = provider || getProvider();
+        const code = await baseProvider.getCode(getAddress);
 
         if (code !== '0x') {
             return true;

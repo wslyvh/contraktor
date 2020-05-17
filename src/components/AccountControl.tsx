@@ -14,10 +14,10 @@ export const AccountControl = () => {
             if (authorized) { 
                 await connectWeb3();
             }
-            console.log(authorized);
         }
         
         asyncEffect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     async function connectWeb3() {

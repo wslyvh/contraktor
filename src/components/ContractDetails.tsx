@@ -7,6 +7,8 @@ import { ETHERSCAN_ADDRESS_LINK } from '../constants';
 import { ethers } from 'ethers';
 import { Loading } from '.';
 import { parseAddress, getProvider } from '../utils/web3';
+import { useWeb3React } from '@web3-react/core';
+import { BaseProvider } from 'ethers/providers';
 
 interface ContractProps { 
   currentAddress: string;
@@ -14,7 +16,7 @@ interface ContractProps {
 }
 
 export const ContractDetails = (props: ContractProps) => {
-  const provider = getProvider();
+  const context = useWeb3React();
   const [loading, setLoading] = useState(true);
   const [functions, setFunctions] = useState({
     constants: new Array<any>(),
@@ -23,6 +25,7 @@ export const ContractDetails = (props: ContractProps) => {
   });
   
   const parseContract = async () => { 
+    const provider = context.library as BaseProvider || getProvider();
     const contract = new ethers.Contract(props.currentAddress, props.contract.abi, provider);
 
     const constants = contract.interface.abi.filter((member: any) => member.constant === true);
@@ -36,7 +39,7 @@ export const ContractDetails = (props: ContractProps) => {
   useEffect(() => {
     parseContract();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [context]);
   
   if (loading) { 
     return <Loading />
