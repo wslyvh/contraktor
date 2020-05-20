@@ -1,6 +1,15 @@
 import { legos } from "@studydefi/money-legos";
 import { Aave, Compound, ENS, ERC20, Kyber, Maker, Sets, Uniswap } from "../assets/logos/index"
-import { Compound_Governance_ABI, Compound_cDAI_ABI, Compound_cETH_ABI, ERC20_ABI, TokenSets_Core_ABI, ENS_Registry_ABI } from "../data/ABIs";
+import { 
+	Compound_Governance_ABI, 
+	Compound_cDAI_ABI, 
+	Compound_cETH_ABI, 
+	ERC20_ABI, 
+	TokenSets_Core_ABI, 
+	ENS_Registry_ABI, 
+	Uniswap_Factory_ABI, 
+	Uniswap_Pair_ABI, 
+	Uniswap_Router01_ABI } from "../data/ABIs";
 
 const ALL_PROJECT_DATA = [
     {
@@ -180,13 +189,33 @@ const ALL_PROJECT_DATA = [
 		}]
 	},
 	{
-		"name": "Uniswap v1",
+		"name": "Uniswap v2",
 		"logoPath": Uniswap,
 		"contracts": [{
-			"name": "factory",
-			"abi": legos.uniswap.factory.abi,
+			"name": "Factory",
+			"abi": Uniswap_Factory_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.uniswap.factory.address },
+				{ "network": "mainnet", "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f" },
+				{ "network": "ropsten", "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f" },
+				{ "network": "kovan", "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f" },
+				{ "network": "rinkeby", "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f" },
+				{ "network": "goerli", "address": "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f" },
+			]
+		}, {
+			"name": "Pair",
+			"abi": Uniswap_Pair_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "" },
+			]
+		}, {
+			"name": "Router",
+			"abi": Uniswap_Router01_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a" },
+				{ "network": "ropsten", "address": "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a" },
+				{ "network": "kovan", "address": "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a" },
+				{ "network": "rinkeby", "address": "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a" },
+				{ "network": "goerli", "address": "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a" },
 			]
 		}]
 	}
