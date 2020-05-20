@@ -28,10 +28,13 @@ export const ContractDetails = (props: ContractProps) => {
     const provider = context.library as BaseProvider || getProvider();
     const contract = new ethers.Contract(props.currentAddress, props.contract.abi, provider);
 
-    const constants = contract.interface.abi.filter((member: any) => member.constant === true);
-    const functions = contract.interface.abi.filter((member: any) => member.constant === false);
+    const ctor = contract.interface.abi.find((member: any) => member.type === "constructor");
+    const constants = contract.interface.abi.filter((member: any) => member.constant === true || (member.stateMutability === "view" || member.stateMutability === "pure"));
+    const functions = contract.interface.abi.filter((member: any) => member.constant === false || (member.stateMutability !== "view" || member.stateMutability !== "pure"));
     const events = contract.interface.abi.filter((member: any) => member.type === "event");
+    const fallback = contract.interface.abi.find((member: any) => member.type === "receive");
     
+
     setFunctions({ constants, functions, events })
     setLoading(false);
   }
@@ -46,19 +49,19 @@ export const ContractDetails = (props: ContractProps) => {
   } 
 
   const constantItems = functions.constants.map((func: any) => 
-    <div key={`constant-${func.name}-${func.inputs.length}`} className="alert alert-primary" role="alert">
+    <div key={`constant-${func.name}-${func.inputs?.length}`} className="alert alert-primary" role="alert">
       {func.name}
     </div>
   );
 
-  const functionItems = functions.functions.map((func: any) =>
-    <div key={`function-${func.name}-${func.inputs.length}`} className="alert alert-success" role="alert">
+  const functionItems = functions.functions?.map((func: any) =>
+    <div key={`function-${func.name}-${func.inputs?.length}`} className="alert alert-success" role="alert">
       {func.name}
     </div>
   );
 
   const eventItems = functions.events.map((func: any) =>
-    <div key={`event-${func.name}-${func.inputs.length}`} className="alert alert-warning" role="alert">
+    <div key={`event-${func.name}-${func.inputs?.length}`} className="alert alert-warning" role="alert">
       {func.name}
     </div>
   );

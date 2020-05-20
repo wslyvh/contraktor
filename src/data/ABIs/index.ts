@@ -13,6 +13,6 @@ export const ERC20_StandardToken_ABI = require("./ERC20/StandardToken.json");
 
 export const TokenSets_Core_ABI = require("./TokenSets/Core.json");
 
-export const Uniswap_Factory_ABI = require("./Uniswap/UniswapV2Factory.json");
-export const Uniswap_Pair_ABI = require("./Uniswap/UniswapV2Pair.json");
-export const Uniswap_Router01_ABI = require("./Uniswap/UniswapV2Router01.json");
+export const Uniswap_Factory_ABI = require("./Uniswap/UniswapV2Factory.json").abi;
+export const Uniswap_Pair_ABI = require("./Uniswap/UniswapV2Pair.json").abi;
+export const Uniswap_Router01_ABI = require("./Uniswap/UniswapV2Router01.json").abi;

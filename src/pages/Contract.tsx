@@ -5,6 +5,7 @@ import { Contract } from '../types';
 import { getContract } from '../services/ContractService';
 import { useWeb3React } from '@web3-react/core';
 import { BaseProvider } from 'ethers/providers';
+import { getProvider } from '../utils/web3';
 
 export const ContractPage = () => {
   const { address } = useParams();
@@ -13,8 +14,7 @@ export const ContractPage = () => {
   const [contract, setContract] = useState<Contract | undefined>(undefined);
 
   const fetchContract = async () => { 
-    const provider = context.library as BaseProvider;
-
+    const provider = context.library as BaseProvider || getProvider();
     if (provider) {
       const contract = await getContract(address, provider);
       
