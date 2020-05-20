@@ -21,9 +21,17 @@ export async function getContract(address: string, provider?: BaseProvider): Pro
     }
 
     const contracts = await getContracts();
-    let contract = contracts.find((i: Contract) => i.addresses.find(x => x.address === address));
+    let networkName = "mainnet"
+    if (provider) { 
+        const name = (await provider.getNetwork()).name;
+        if (name !== "homestead")
+            networkName = name;
+    }
+    
+    let contract = contracts.find((i: Contract) => i.addresses.filter(i => i.network === networkName).find(x => x.address === address));
 
     if (!contract) { 
+        console.log("Try/get contract from address", address);
         contract = await getContractFromEtherscan(address);
     }
 

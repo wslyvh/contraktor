@@ -18,6 +18,8 @@ interface ContractProps {
 export const ContractDetails = (props: ContractProps) => {
   const context = useWeb3React();
   const [loading, setLoading] = useState(true);
+  const [ctor, setConstructor] = useState<any | undefined>(undefined);
+  const [fallback, setFallback] = useState<any | undefined>(undefined);
   const [functions, setFunctions] = useState({
     constants: new Array<any>(),
     functions: new Array<any>(),
@@ -30,12 +32,24 @@ export const ContractDetails = (props: ContractProps) => {
 
     const ctor = contract.interface.abi.find((member: any) => member.type === "constructor");
     const constants = contract.interface.abi.filter((member: any) => member.constant === true || (member.stateMutability === "view" || member.stateMutability === "pure"));
-    const functions = contract.interface.abi.filter((member: any) => member.constant === false || (member.stateMutability !== "view" || member.stateMutability !== "pure"));
+    const functions = contract.interface.abi.filter((member: any) => (member.constant === false) || 
+      (member.stateMutability !== "view" && member.stateMutability !== "pure" && member.type !== "constructor" && member.type !== "receive"));
     const events = contract.interface.abi.filter((member: any) => member.type === "event");
     const fallback = contract.interface.abi.find((member: any) => member.type === "receive");
     
+    const executableConstants = constants.filter(i => i.inputs?.length === 0).map(async i => {
+      const value = await contract.functions[i.name]();
+      return {
+        name: i.name,
+        value: value
+      };
+    });
+    const currentState = await Promise.all(executableConstants);
+    console.log(currentState);
 
+    setConstructor(ctor);
     setFunctions({ constants, functions, events })
+    setFallback(fallback);
     setLoading(false);
   }
 
@@ -47,6 +61,22 @@ export const ContractDetails = (props: ContractProps) => {
   if (loading) { 
     return <Loading />
   } 
+
+  const renderConstructor = ctor ? 
+    <>
+      <h3>Constructor</h3>
+      <div className="alert alert-secondary" role="alert">
+        {ctor.type}
+      </div>
+    </> : <></>
+
+  const renderFallback = fallback ? 
+  <>
+    <h3>Fallback</h3>
+    <div className="alert alert-secondary" role="alert">
+      {fallback.type}
+    </div>
+  </> : <></>
 
   const constantItems = functions.constants.map((func: any) => 
     <div key={`constant-${func.name}-${func.inputs?.length}`} className="alert alert-primary" role="alert">
@@ -84,6 +114,9 @@ export const ContractDetails = (props: ContractProps) => {
         </div>
 
         <div className="mt-3 text-left">
+
+          {renderConstructor}
+
           <h3>Constant</h3>
           <div>
             {constantItems}
@@ -98,6 +131,8 @@ export const ContractDetails = (props: ContractProps) => {
           <div>
             {eventItems}
           </div>
+
+          {renderFallback}
         </div>
 
       </div>
