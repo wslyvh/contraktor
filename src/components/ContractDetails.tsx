@@ -6,16 +6,19 @@ import { TransactionCard } from './TransactionCard';
 import { ETHERSCAN_ADDRESS_LINK } from '../constants';
 import { ethers } from 'ethers';
 import { Loading } from '.';
-import { parseAddress, getProvider } from '../utils/web3';
+import { getProvider } from '../utils/web3';
 import { useWeb3React } from '@web3-react/core';
 import { BaseProvider } from 'ethers/providers';
 import { ContractMembersCard } from './ContractMembersCard';
 import { ContractStateCard } from './ContractStateCard';
 
+declare let document: any;
+
 interface ContractProps { 
   currentAddress: string;
   contract: Contract;
 }
+
 
 export const ContractDetails = (props: ContractProps) => {
   const context = useWeb3React();
@@ -59,6 +62,19 @@ export const ContractDetails = (props: ContractProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context, props.currentAddress, props.contract]);
 
+  const copyToClipboard = () => {
+    const textElement = document.createElement('textarea');
+    textElement.value = JSON.stringify(props.contract.abi);
+    textElement.setAttribute('readonly', '');
+    textElement.style.position = 'absolute';
+    textElement.style.left = '-9999px';
+    document.body.appendChild(textElement);
+
+    textElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(textElement);
+  };
+
   if (loading) { 
     return <Loading />
   } 
@@ -78,6 +94,10 @@ export const ContractDetails = (props: ContractProps) => {
         <div className="card-deck">
           <BalanceCard address={props.currentAddress} />
           <TransactionCard address={props.currentAddress} />
+        </div>
+
+        <div className="mt-3 text-right">
+          <a href="#" className="small text-secondary" onClick={() => copyToClipboard()}>Copy ABI to clipboard</a>
         </div>
 
         <div className="mt-3 text-left">
