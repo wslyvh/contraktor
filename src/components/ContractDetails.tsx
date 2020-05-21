@@ -35,12 +35,18 @@ export const ContractDetails = (props: ContractProps) => {
     const fallback = contract.interface.abi.filter((member: any) => member.type === "receive");
     
     const executableConstants = constants.filter(i => i.inputs?.length === 0).map(async i => {
-      const value = await contract.functions[i.name]();
+      let value = "[error retrieving value]"
+      try { 
+        value = await contract.functions[i.name]();
+      } catch (ex) { 
+        console.log("ERROR", ex)
+      }
       return {
         name: i.name,
         value: value
       };
     });
+    console.log(executableConstants);
     const currentState = await Promise.all(executableConstants);
     
     setContractState(currentState);
