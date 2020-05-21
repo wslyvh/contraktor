@@ -46,7 +46,7 @@ export const ContractDetails = (props: ContractProps) => {
         value: value
       };
     });
-    console.log(executableConstants);
+
     const currentState = await Promise.all(executableConstants);
     
     setContractState(currentState);
@@ -79,7 +79,7 @@ export const ContractDetails = (props: ContractProps) => {
   return (
     <>
       <div className="contract-details">
-        <h2>
+        <h2 className="contract-title">
           {props.contract?.name} 
         </h2>
         <h3>

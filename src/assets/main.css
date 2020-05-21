@@ -23,6 +23,10 @@ ul {
 }
 
 @media (max-width: 767.98px) { 
+  .contract-title { 
+    font-size: 1.25rem;
+  }
+  
   .contract-address-link { 
     font-size: 0.75rem;
   }
