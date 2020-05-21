@@ -1,27 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
-import { Contract } from '../types';
+import { FullContractWrapper } from '../types';
 import { BalanceCard } from './BalanceCard';
 import { TransactionCard } from './TransactionCard';
 import { ETHERSCAN_ADDRESS_LINK } from '../constants';
-import { ethers } from 'ethers';
 import { Loading } from '.';
-import { getProvider } from '../utils/web3';
-import { useWeb3React } from '@web3-react/core';
-import { BaseProvider } from 'ethers/providers';
 import { ContractMembersCard } from './ContractMembersCard';
 import { ContractStateCard } from './ContractStateCard';
 
 declare let document: any;
 
 interface ContractProps { 
-  currentAddress: string;
-  contract: Contract;
+  contract: FullContractWrapper;
 }
 
-
 export const ContractDetails = (props: ContractProps) => {
-  const context = useWeb3React();
   const [loading, setLoading] = useState(true);
   const [contractState, setContractState] = useState(new Array<any>());
   const [functions, setFunctions] = useState({
@@ -33,9 +26,7 @@ export const ContractDetails = (props: ContractProps) => {
   });
   
   const parseContract = async () => { 
-    const provider = context.library as BaseProvider || getProvider();
-    const contract = new ethers.Contract(props.currentAddress, props.contract.abi, provider);
-
+    const contract = props.contract.ethersContract;
     const ctor = contract.interface.abi.filter((member: any) => member.type === "constructor");
     const constants = contract.interface.abi.filter((member: any) => member.constant === true || (member.stateMutability === "view" || member.stateMutability === "pure"));
     const functions = contract.interface.abi.filter((member: any) => (member.constant === false) || 
@@ -60,7 +51,7 @@ export const ContractDetails = (props: ContractProps) => {
   useEffect(() => {
     parseContract();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context, props.currentAddress, props.contract]);
+  }, [props.contract]);
 
   const copyToClipboard = () => {
     const textElement = document.createElement('textarea');
@@ -86,14 +77,14 @@ export const ContractDetails = (props: ContractProps) => {
           {props.contract?.name} 
         </h2>
         <h3>
-          <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer" className="small text-muted contract-address-link" title={props.currentAddress}>
-            {props.currentAddress}
+          <a href={`${ETHERSCAN_ADDRESS_LINK}${props.contract.address}`} target="_blank" rel="noopener noreferrer" className="small text-muted contract-address-link" title={props.contract.address}>
+            {props.contract.address}
           </a>
         </h3>
 
         <div className="card-deck">
-          <BalanceCard address={props.currentAddress} />
-          <TransactionCard address={props.currentAddress} />
+          <BalanceCard address={props.contract.address} />
+          <TransactionCard address={props.contract.address} />
         </div>
 
         <div className="mt-3 text-right">

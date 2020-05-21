@@ -29,9 +29,9 @@ export const ContractValue = (props: ContractValueProps) => {
         return <></>
     }
 
-    // if (isContract) { 
-    //     return <Link to={`/contracts/${props.value}`}>{props.value}</Link>
-    // }
+    if (isContract) { 
+        return <a href={`/contracts/${props.value}`}>{props.value}</a>
+    }
     
     return (props.value.toString());
 }

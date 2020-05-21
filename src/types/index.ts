@@ -1,3 +1,6 @@
+import { Provider } from "ethers/providers"
+import { ethers, Signer } from "ethers"
+
 export type Project = { 
     name: string;
     logoPath: string;
@@ -8,6 +11,14 @@ export type Contract = {
     name: string,
     abi: string,
     addresses: Array<Address>
+}
+
+export type FullContractWrapper = {
+    name: string,
+    abi: string,
+    address: string,
+    provider: Signer | Provider,
+    ethersContract: ethers.Contract
 }
 
 export type Address = {

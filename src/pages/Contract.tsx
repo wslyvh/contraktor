@@ -1,24 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { Notification, ContractDetails, Loading } from '../components';
 import { useParams } from 'react-router-dom';
-import { Contract } from '../types';
+import { Contract, FullContractWrapper } from '../types';
 import { getContract } from '../services/ContractService';
 import { useWeb3React } from '@web3-react/core';
 import { BaseProvider } from 'ethers/providers';
 import { getProvider } from '../utils/web3';
+import { ethers } from 'ethers';
 
 export const ContractPage = () => {
   const { address } = useParams();
   const context = useWeb3React();
   const [loading, setLoading] = useState(true);
-  const [contract, setContract] = useState<Contract | undefined>(undefined);
+  const [contract, setContract] = useState<FullContractWrapper | undefined>(undefined);
 
   const fetchContract = async () => { 
     const provider = context.library as BaseProvider || getProvider();
     if (provider) {
       const contract = await getContract(address, provider);
       
-      setContract(contract);   
+      if (contract) {
+        const fullContract: FullContractWrapper = {
+          name: contract.name,
+          abi: contract.abi,
+          address: address,
+          provider: provider,
+          ethersContract: new ethers.Contract(address, contract.abi, provider)
+        }
+
+        setContract(fullContract);   
+      }
+      
       setLoading(false);
     }
   }
@@ -26,7 +38,7 @@ export const ContractPage = () => {
   useEffect(() => {
     fetchContract();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context, address, contract]);
+  }, [context, address]);
 
   if (loading) { 
     return <Loading />
@@ -38,7 +50,7 @@ export const ContractPage = () => {
 
   return (
     <>
-      <ContractDetails currentAddress={address} contract={contract} />
+      <ContractDetails contract={contract} />
     </>
   );
 }
