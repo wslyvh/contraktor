@@ -23,6 +23,12 @@ ul {
 }
 
 @media (max-width: 767.98px) { 
+  .contract-address-link { 
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 767.98px) { 
   .card-columns { 
     grid-template-columns: none;
   }

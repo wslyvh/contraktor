@@ -17,8 +17,9 @@ export const ContractValue = (props: ContractValueProps) => {
                 const isContract = await isContractAddress(props.value);
 
                 setIsContract(isContract);
-                setLoading(false);
             }
+            
+            setLoading(false);
         }
         
         asyncEffect();

@@ -31,9 +31,7 @@ export const ContractDetails = (props: ContractProps) => {
   
   const parseContract = async () => { 
     const provider = context.library as BaseProvider || getProvider();
-    console.log("try ethers.Contract")
     const contract = new ethers.Contract(props.currentAddress, props.contract.abi, provider);
-    console.log(contract);
 
     const ctor = contract.interface.abi.filter((member: any) => member.type === "constructor");
     const constants = contract.interface.abi.filter((member: any) => member.constant === true || (member.stateMutability === "view" || member.stateMutability === "pure"));
@@ -67,15 +65,15 @@ export const ContractDetails = (props: ContractProps) => {
 
   return (
     <>
-      <div>
+      <div className="contract-details">
         <h2>
           {props.contract?.name} 
-          <small className="ml-2">
-            <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer" className="small text-muted" title={props.currentAddress}>
-              {parseAddress(props.currentAddress)}
-            </a>
-          </small>
         </h2>
+        <h3>
+          <a href={`${ETHERSCAN_ADDRESS_LINK}${props.currentAddress}`} target="_blank" rel="noopener noreferrer" className="small text-muted contract-address-link" title={props.currentAddress}>
+            {props.currentAddress}
+          </a>
+        </h3>
 
         <div className="card-deck">
           <BalanceCard address={props.currentAddress} />
