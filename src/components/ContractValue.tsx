@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { isContractAddress } from '../utils/web3';
-import { Link } from 'react-router-dom';
 
 interface ContractValueProps { 
     value: any

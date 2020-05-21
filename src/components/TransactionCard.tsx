@@ -28,17 +28,26 @@ export const TransactionCard = (props: ContractProps) => {
     return <></>
   }
 
-  if (!transaction) { 
-    return <span>No transaction(s) found..</span>
-  } 
+  let renderTransactionCard;
+  if (transaction) { 
+    renderTransactionCard = <>
+        Latest activity: {parseTimestampToMinutesAgo(transaction.timestamp)} <br/>
+        <small>
+          <a href={`${ETHERSCAN_TX_LINK}${transaction.hash}`} target="_blank" rel="noopener noreferrer" className="small text-info">View transaction</a>
+        </small>
+      </>
+  } else { 
+    renderTransactionCard = <>
+      <small>No recent activity..</small>
+    </>
+  }
 
   return (
     <>
       <div className="card text-left">
         <div className="card-body">
           <p className="card-text">
-            Latest activity: {parseTimestampToMinutesAgo(transaction.timestamp)} <br/>
-            <small><a href={`${ETHERSCAN_TX_LINK}${transaction.hash}`} target="_blank" rel="noopener noreferrer" className="small text-info">View transaction</a></small>
+            {renderTransactionCard}
           </p>
         </div>
       </div>

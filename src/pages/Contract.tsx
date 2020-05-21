@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Notification, ContractDetails, Loading } from '../components';
 import { useParams } from 'react-router-dom';
-import { Contract, FullContractWrapper } from '../types';
+import { FullContractWrapper } from '../types';
 import { getContract } from '../services/ContractService';
 import { useWeb3React } from '@web3-react/core';
 import { BaseProvider } from 'ethers/providers';
