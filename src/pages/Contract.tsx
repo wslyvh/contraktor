@@ -26,7 +26,7 @@ export const ContractPage = () => {
   useEffect(() => {
     fetchContract();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context]);
+  }, [context, address, contract]);
 
   if (loading) { 
     return <Loading />
