@@ -18,6 +18,17 @@ export async function isContractAddress(address: string, provider?: BaseProvider
     return false;
 }
 
+export async function getEnsNameOrAddress(provider: BaseProvider, address: string, shorten?: boolean): Promise<string> { 
+    const name = await provider.lookupAddress(address);
+    if (name)
+        return name;
+    
+    if (shorten)
+        return parseAddress(address);
+
+    return address;
+}
+
 export function getProvider(network?: "homestead" | "rinkeby" | "ropsten" | "kovan" | "goerli"): BaseProvider { 
     if (network) {
         return ethers.getDefaultProvider(network);
@@ -31,14 +42,14 @@ export const Injected = new InjectedConnector({
 });
 
 export function parseEther(wei: number): string { 
-    const ether = ethers.utils.formatEther(wei.toString())
+    const ether = ethers.utils.formatEther(wei.toString());
     const formatted = (Math.round(Number(ether) * 100) / 100).toLocaleString();
     
     return formatted;
 }
 
 export function parseAddress(address: string): string { 
-    const begin = address.substring(0, 7)
+    const begin = address.substring(0, 7);
     const end = address.substring(address.length - 3, address.length);
     const formatted = `${begin}...${end}`;
 

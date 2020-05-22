@@ -29,7 +29,7 @@ export const AccountControl = () => {
     }
 
     if (context.account) { 
-        return <AccountInfo /> 
+        return <AccountInfo address={context.account} /> 
     }
 
     return <button type="button" className="btn btn-outline-info btn-sm" onClick={connectWeb3}>Connect</button>
