@@ -15,7 +15,6 @@ export const ContractValue = (props: ContractValueProps) => {
 
         async function asyncEffect() {
             if (typeof props.value === "string" && props.value.length === 42) { 
-                console.log("check Contract addresses")
                 const isContract = await isContractAddress(props.value);
 
                 if (isContract) {

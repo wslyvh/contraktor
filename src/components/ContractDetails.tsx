@@ -94,7 +94,7 @@ export const ContractDetails = (props: ContractProps) => {
         </div>
 
         <div className="mt-3 text-right">
-          <a href="#" className="small text-info" onClick={() => copyToClipboard()}>Copy ABI to clipboard</a>
+          <a href="#copy" className="small text-info" onClick={() => copyToClipboard()}>Copy ABI to clipboard</a>
         </div>
 
         <div className="mt-3 text-left">
