@@ -3,6 +3,8 @@ import { BaseProvider } from "ethers/providers";
 import { InjectedConnector } from "@web3-react/injected-connector";
 
 export async function isContractAddress(address: string, provider?: BaseProvider): Promise<boolean> {
+    if (address.length !== 42) return false;
+
     try {
         const getAddress = ethers.utils.getAddress(address);
         const baseProvider = provider || getProvider();
@@ -18,7 +20,11 @@ export async function isContractAddress(address: string, provider?: BaseProvider
     return false;
 }
 
-export async function getEnsNameOrAddress(provider: BaseProvider, address: string, shorten?: boolean): Promise<string> { 
+export async function getEnsNameOrAddress(address: string, shorten?: boolean, provider?: BaseProvider): Promise<string> { 
+    if (!provider) { 
+        provider = getProvider();
+    }
+    
     const name = await provider.lookupAddress(address);
     if (name)
         return name;
