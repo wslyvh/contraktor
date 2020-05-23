@@ -1,7 +1,8 @@
 import React from 'react';
-import { getMemberCardRowStyle } from '../utils/styling';
+import { ContractMemberFunction } from './';
 
 interface ContractMembersCardProps { 
+    collapsible?: false
     type: "constructor" | "views" | "payable" | "functions" | "events" | "fallback"
     members: any[]
 }
@@ -12,9 +13,7 @@ export const ContractMembersCard = (props: ContractMembersCardProps) => {
     if (props.members?.length) {
         renderMemberItems = props.members.map((member: any, i: number) =>
             <>
-                <div key={i} className={getMemberCardRowStyle(props.type)} role="alert">
-                    {member.name ?? member.type}
-                </div>
+                <ContractMemberFunction key={i} member={member} type={props.type} collapsible={(props.type !== "constructor" && props.type !== "events")} />
             </>
         );
     } else { 
