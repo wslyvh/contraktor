@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Contract, Address } from '../types';
 import { Link } from 'react-router-dom';
-import { CURRENT_NETWORK } from '../constants';
-import { getNetworkColor } from '../utils/styling';
+import { getNetworkColor, getNetworkName } from '../utils/styling';
+import { useWeb3React } from '@web3-react/core';
 
 interface ContractListItemProps { 
   contract: Contract;
@@ -11,7 +11,19 @@ interface ContractListItemProps {
 
 export const ContractListItem = (props: ContractListItemProps) => {
   const contract = props.contract;
-  const address = contract.addresses.find((i: Address) => i.network.toLowerCase() === CURRENT_NETWORK.toLowerCase());
+  const context = useWeb3React();
+  const [address, setAddress] = useState("");
+
+  useEffect(() => {
+    if (context.chainId) {
+      const networkName = getNetworkName(context.chainId);
+      const addr = contract.addresses.find((i: Address) => i.network === networkName);
+
+      if (addr)
+        setAddress(addr.address)
+    }
+
+  }, [contract.addresses, context.chainId]);
 
   const networkBadges = contract.addresses.map((address: Address) =>
     <span key={address.network} className={`badge badge-${getNetworkColor(address.network)} ml-1`}>{address.network}</span>
@@ -21,7 +33,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
     return (
       <>
         <li className="list-group-item d-flex justify-content-between align-items-center">
-          <Link to={`/contracts/${address.address}`} className="stretched-link">
+          <Link to={`/contracts/${address}`} className="stretched-link">
             {contract.name}
           </Link>
           <div>
