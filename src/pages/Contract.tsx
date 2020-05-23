@@ -6,7 +6,6 @@ import { getContract } from '../services/ContractService';
 import { useWeb3React } from '@web3-react/core';
 import { BaseProvider } from 'ethers/providers';
 import { getProvider } from '../utils/web3';
-import { ethers } from 'ethers';
 
 export const ContractPage = () => {
   const { address } = useParams();
@@ -14,31 +13,22 @@ export const ContractPage = () => {
   const [loading, setLoading] = useState(true);
   const [contract, setContract] = useState<FullContractWrapper | undefined>(undefined);
 
-  const fetchContract = async () => { 
-    const provider = context.library as BaseProvider || getProvider();
-    if (provider) {
-      const contract = await getContract(address, provider);
-      
-      if (contract) {
-        const fullContract: FullContractWrapper = {
-          name: contract.name,
-          abi: contract.abi,
-          address: address,
-          provider: provider,
-          ethersContract: new ethers.Contract(address, contract.abi, provider)
-        }
-
-        setContract(fullContract);   
-      }
-      
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
-    fetchContract();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context, address]);
+    setLoading(true);
+    
+    async function asyncEffect() { 
+      const provider = context.library as BaseProvider || getProvider();
+      if (provider) {
+        const contract = await getContract(address, provider);
+
+
+        setContract(contract);
+        setLoading(false);
+      }
+    }
+
+    asyncEffect();
+  }, [address, context.library]);
 
   if (loading) { 
     return <Loading />

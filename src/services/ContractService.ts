@@ -1,8 +1,9 @@
 import ALL_PROJECT_DATA from "../data/projects";
-import { Contract, Transaction } from "../types";
+import { Contract, Transaction, FullContractWrapper } from "../types";
 import { ETHERSCAN_API_KEY } from "../constants";
 import { isContractAddress } from "../utils/web3";
 import { BaseProvider } from "ethers/providers";
+import { ethers } from "ethers";
 
 export async function getContracts(): Promise<Contract[]> { 
     const contracts = new Array<Contract>();
@@ -13,7 +14,7 @@ export async function getContracts(): Promise<Contract[]> {
     return contracts;
 }
 
-export async function getContract(address: string, provider?: BaseProvider): Promise<Contract | undefined> { 
+export async function getContract(address: string, provider: BaseProvider): Promise<FullContractWrapper | undefined> { 
     const isValidAddress = await isContractAddress(address, provider);
     if (!isValidAddress) { 
         console.log("No valid contract address", address);
@@ -34,7 +35,17 @@ export async function getContract(address: string, provider?: BaseProvider): Pro
         contract = await getContractFromEtherscan(address);
     }
 
-    return contract;
+    if (!contract) 
+        return;
+
+    return {
+        name: contract.name,
+        abi: contract.abi,
+        address: address,
+        availableAddresses: contract.addresses || [ { address: address, network: networkName } ],
+        provider: provider,
+        ethersContract: new ethers.Contract(address, contract.abi, provider)
+    } as FullContractWrapper;
 }
 
 export async function getContractFromEtherscan(address: string): Promise<Contract | undefined> { 
