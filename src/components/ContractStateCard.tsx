@@ -1,5 +1,6 @@
 import React from 'react';
 import { ContractValue } from '.';
+import { generate } from 'shortid';
 
 interface ContractStateCardProps { 
     members: any[]
@@ -8,7 +9,7 @@ interface ContractStateCardProps {
 export const ContractStateCard = (props: ContractStateCardProps) => {
     
     const renderMemberItems = props.members.map((member: any, i: number) => (
-        <tr key={i}>
+        <tr key={generate()}>
             <th scope="row">{member.name}</th>
             <td>
                 <ContractValue value={member.value} />
