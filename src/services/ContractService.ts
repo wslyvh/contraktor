@@ -31,7 +31,6 @@ export async function getContract(address: string, provider?: BaseProvider): Pro
     let contract = contracts.find((i: Contract) => i.addresses.filter(i => i.network === networkName).find(x => x.address === address));
 
     if (!contract) { 
-        console.log("Try/get contract from address", address);
         contract = await getContractFromEtherscan(address);
     }
 
@@ -42,7 +41,7 @@ export async function getContractFromEtherscan(address: string): Promise<Contrac
     const response = await fetch(`https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=${ETHERSCAN_API_KEY}`);
     const body = await response.json();
 
-    if (body && body.result) {
+    if (body && body.result && (body.result[0].ABI !== "Contract source code not verified")) {
         return {
             name: body.result[0].ContractName,
             abi: body.result[0].ABI,
