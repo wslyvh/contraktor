@@ -102,7 +102,8 @@ const ALL_PROJECT_DATA = [
 			"abi": ERC20_ABI,
 			"addresses": [
 				{ "network": "mainnet", "address": legos.erc20.dai.address},
-				{ "network": "kovan", "address": '0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa' },
+				{ "network": "ropsten", "address": "0xf80A32A835F79D7787E8a8ee5721D0fEaFd78108" },
+				{ "network": "kovan", "address": '0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD' },
 			]
 		}, {
 			"name": "BAT",
