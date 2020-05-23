@@ -15,12 +15,14 @@ export const ContractListItem = (props: ContractListItemProps) => {
   const [address, setAddress] = useState("");
 
   useEffect(() => {
+    let networkName = "mainnet";
     if (context.chainId) {
-      const networkName = getNetworkName(context.chainId);
-      const addr = contract.addresses.find((i: Address) => i.network === networkName);
+      networkName = getNetworkName(context.chainId);
+    } 
 
-      if (addr)
-        setAddress(addr.address)
+    const address = contract.addresses.find((i: Address) => i.network === networkName);
+    if (address) {
+      setAddress(address.address)
     }
 
   }, [contract.addresses, context.chainId]);
