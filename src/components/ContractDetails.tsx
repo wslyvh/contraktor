@@ -35,11 +35,12 @@ export const ContractDetails = (props: ContractProps) => {
     const fallback = contract.interface.abi.filter((member: any) => member.type === "receive");
     
     const executableConstants = constants.filter(i => i.inputs?.length === 0).map(async i => {
-      let value = "[error retrieving value]"
+      let value;
       try { 
         value = await contract.functions[i.name]();
       } catch (ex) { 
         console.log("ERROR", ex)
+        value = "[error retrieving value]"
       }
       return {
         name: i.name,
@@ -99,12 +100,12 @@ export const ContractDetails = (props: ContractProps) => {
 
         <div className="mt-3 text-left">
           <ContractStateCard members={contractState} />
-          <ContractMembersCard type="constructor" members={functions.ctor} />
-          <ContractMembersCard type="views" members={functions.constants.filter(i => i.inputs?.length > 0)} />
-          <ContractMembersCard type="functions" members={functions.functions.filter(i => !i.payable)} />
-          <ContractMembersCard type="payable" members={functions.functions.filter(i => i.payable)} />
-          <ContractMembersCard type="events" members={functions.events} />
-          <ContractMembersCard type="fallback" members={functions.fallback} />
+          <ContractMembersCard type="constructor" contract={props.contract} members={functions.ctor} />
+          <ContractMembersCard type="views" contract={props.contract} members={functions.constants.filter(i => i.inputs?.length > 0)} />
+          <ContractMembersCard type="functions" contract={props.contract} members={functions.functions.filter(i => !i.payable)} />
+          <ContractMembersCard type="payable" contract={props.contract} members={functions.functions.filter(i => i.payable)} />
+          <ContractMembersCard type="events" contract={props.contract} members={functions.events} />
+          <ContractMembersCard type="fallback" contract={props.contract} members={functions.fallback} />
         </div>
 
       </div>

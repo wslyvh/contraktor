@@ -3,6 +3,7 @@ export { AccountInfo } from "./AccountInfo"
 export { BalanceCard } from './BalanceCard'
 export { ContractDetails } from './ContractDetails'
 export { ContractListItem } from './ContractListItem'
+export { ContractMemberForm } from './ContractMemberForm'
 export { ContractMemberFunction } from './ContractMemberFunction'
 export { ContractMembersCard } from './ContractMembersCard'
 export { ContractStateCard } from './ContractStateCard'
