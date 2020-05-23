@@ -31,3 +31,22 @@ export function getNetworkColor(network: string): string {
 
   return "info"
 }
+
+export function getMemberCardRowStyle(type: string) { 
+  if (type === "constructor") // grey
+    return "alert alert-secondary"
+
+  if (type === "views") // blue 
+    return "alert alert-primary"
+
+  if (type === "payable") // red 
+    return "alert alert-danger"
+
+  if (type === "functions") // orange/yellow
+    return "alert alert-warning"
+
+  if (type === "events") // green 
+    return "alert alert-success"
+
+  return "alert alert-info"
+}
