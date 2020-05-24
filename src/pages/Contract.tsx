@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { FullContractWrapper } from '../types';
 import { getContract } from '../services/ContractService';
 import { useWeb3React } from '@web3-react/core';
-import { BaseProvider } from 'ethers/providers';
 import { getProvider } from '../utils/web3';
+import { Signer } from 'ethers';
 
 export const ContractPage = () => {
   const { address } = useParams();
@@ -17,10 +17,15 @@ export const ContractPage = () => {
     setLoading(true);
     
     async function asyncEffect() { 
-      const provider = context.library as BaseProvider || getProvider();
-      if (provider) {
-        const contract = await getContract(address, provider);
+      let signer: Signer | undefined;
+      let provider = getProvider();
 
+      if (context.library) {
+        signer = context.library.getSigner();
+      }
+
+      if (provider) {
+        const contract = await getContract(address, provider, signer);
 
         setContract(contract);
         setLoading(false);

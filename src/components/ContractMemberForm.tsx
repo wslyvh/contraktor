@@ -49,14 +49,18 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         }
 
         try { 
-            const response = await props.contract.ethersContract.functions[props.name](...args);
-            setOutput(response.toString())
+            const response = await props.contract.ethersContract.functions[props.name](...args, { gasLimit: 250000 });
+            if (response?.hash) { 
+                setOutput("Transaction send. Hash: " + response.hash)
+            } else { 
+                setOutput(response.toString())
+            }
         } catch (ex) { 
             console.log("error", ex)
             if (props.readOnly) {
-                setOutput("Error retrieving value. Check your input values.")
+                setOutput("Error retrieving value.. Please validate your input arguments.")
             } else {
-                setOutput("Error sending transaction..")
+                setOutput("Error sending transaction.. " + ex.message)
             }
         }
     }
