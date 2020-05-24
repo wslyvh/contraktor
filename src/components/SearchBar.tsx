@@ -17,7 +17,7 @@ export const SearchBar = () => {
         <>
             <div>
                 <form>
-                    <span className="small text-muted">e.g. 0x9ff7ca4cf52d0e559451679678e29a57361899b0</span>
+                    <span className="small text-muted">e.g. 0x68c3d3877d8d218df2d885e15146d062c60b715b</span>
                     <input className="form-control" placeholder="Enter contract address.." 
                             value={contractAddress} onChange={e => setContractAddress(e.target.value)} />
 
