@@ -29,7 +29,7 @@ export const ContractDetails = (props: ContractProps) => {
     const contract = props.contract.ethersContract;
     const ctor = contract.interface.abi.filter((member: any) => member.type === "constructor");
     const constants = contract.interface.abi.filter((member: any) => member.constant === true || (member.stateMutability === "view" || member.stateMutability === "pure"));
-    const functions = contract.interface.abi.filter((member: any) => member.constant === false && 
+    const functions = contract.interface.abi.filter((member: any) => !member.constant && 
       (member.stateMutability !== "view" && member.stateMutability !== "pure" && member.type !== "constructor" && member.type !== "receive" && member.type !== "event"));
     const events = contract.interface.abi.filter((member: any) => member.type === "event");
     const fallback = contract.interface.abi.filter((member: any) => member.type === "receive");
