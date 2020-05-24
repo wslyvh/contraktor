@@ -1,3 +1,5 @@
+import { Address } from "../types";
+
 export function getNetworkName(chainId: number): string { 
   switch (chainId) {
     case 1:
@@ -30,6 +32,21 @@ export function getNetworkColor(network: string): string {
   }
 
   return "info"
+}
+
+export function getEtherscanLink(address: Address): string { 
+  switch (address.network) {
+    case "ropsten":
+      return "https://ropsten.etherscan.io/address/" + address.address
+    case "kovan":
+      return "https://kovan.etherscan.io/address/" + address.address
+    case "rinkeby":
+      return "https://rinkeby.etherscan.io/address/" + address.address
+    case "goerli":
+      return "https://goerli.etherscan.io/address/" + address.address
+  }
+
+  return "https://www.etherscan.io/address/" + address.address
 }
 
 export function getMemberCardRowStyle(type: string) { 

@@ -10,6 +10,7 @@ export { ContractStateCard } from './ContractStateCard'
 export { ContractValue } from './ContractValue'
 export { Header } from './Header'
 export { Loading } from './Loading'
+export { NetworkAddresses } from "./NetworkAddresses"
 export { NetworkBadge } from './NetworkBadge'
 export { Notification } from './Notification'
 export { SearchBar } from './SearchBar'

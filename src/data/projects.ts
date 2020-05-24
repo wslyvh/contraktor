@@ -99,7 +99,7 @@ const ALL_PROJECT_DATA = [
 		"logoPath": ERC20,
 		"contracts": [{
 			"name": "BAT",
-			"abi": legos.erc20.bat.abi,
+			"abi": ERC20_ABI,
 			"addresses": [
 				{ "network": "mainnet", "address": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF" },
 				{ "network": "ropsten", "address": "0x85B24b3517E3aC7bf72a14516160541A60cFF19d" },

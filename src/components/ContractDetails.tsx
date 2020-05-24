@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { FullContractWrapper } from '../types';
 import { BalanceCard } from './BalanceCard';
 import { TransactionCard } from './TransactionCard';
-import { ETHERSCAN_ADDRESS_LINK } from '../constants';
 import { Loading } from '.';
 import { ContractMembersCard } from './ContractMembersCard';
 import { ContractStateCard } from './ContractStateCard';
+import { NetworkAddresses } from './NetworkAddresses';
 
 declare let document: any;
 
@@ -77,21 +77,27 @@ export const ContractDetails = (props: ContractProps) => {
     return <Loading />
   } 
 
+  const renderAddresses = props.contract.availableAddresses.length > 1 ? 
+    <NetworkAddresses availableAddresses={props.contract.availableAddresses} /> : 
+    <></>
+
   return (
     <>
       <div className="contract-details">
         <h2 className="contract-title">
           {props.contract?.name} 
         </h2>
-        <h3>
-          <a href={`${ETHERSCAN_ADDRESS_LINK}${props.contract.address}`} target="_blank" rel="noopener noreferrer" className="small text-muted contract-address-link" title={props.contract.address}>
-            {props.contract.address}
-          </a>
+        <h3 className="small text-muted contract-address-link">
+          {props.contract.address}
         </h3>
 
         <div className="card-deck">
           <BalanceCard address={props.contract.address} />
           <TransactionCard address={props.contract.address} />
+        </div>
+
+        <div className="mt-3">
+          {renderAddresses}
         </div>
 
         <div className="mt-3 text-right">
