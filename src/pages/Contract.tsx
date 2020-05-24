@@ -6,6 +6,7 @@ import { getContract } from '../services/ContractService';
 import { useWeb3React } from '@web3-react/core';
 import { getProvider } from '../utils/web3';
 import { Signer } from 'ethers';
+import { BaseProvider } from 'ethers/providers';
 
 export const ContractPage = () => {
   const { address } = useParams();
@@ -18,7 +19,7 @@ export const ContractPage = () => {
     
     async function asyncEffect() { 
       let signer: Signer | undefined;
-      let provider = getProvider();
+      let provider = context.library as BaseProvider || getProvider();
 
       if (context.library) {
         signer = context.library.getSigner();
@@ -33,7 +34,7 @@ export const ContractPage = () => {
     }
 
     asyncEffect();
-  }, [address, context.library]);
+  }, [address, context.account, context.library]);
 
   if (loading) { 
     return <Loading />

@@ -49,7 +49,11 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         }
 
         try { 
-            const response = await props.contract.ethersContract.functions[props.name](...args, { gasLimit: 250000 });
+            let overrides: any = {}
+            if (!props.readOnly) { 
+                overrides = { gasLimit: 250000 }
+            }
+            const response = await props.contract.ethersContract.functions[props.name](...args, overrides);
             if (response?.hash) { 
                 setOutput("Transaction send. Hash: " + response.hash)
             } else { 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { isContractAddress, getEnsNameOrAddress } from '../utils/web3';
 import { ETHERSCAN_ADDRESS_LINK } from '../constants';
 
@@ -7,6 +7,7 @@ interface ContractValueProps {
 }
 
 export const ContractValue = (props: ContractValueProps) => {
+    const isMounted = useRef(true);
     const [loading, setLoading] = useState(true);
     const [isContract, setIsContract] = useState(false);
     const [accountAddress, setAccountAddress] = useState("");
@@ -17,19 +18,25 @@ export const ContractValue = (props: ContractValueProps) => {
             if (typeof props.value === "string" && props.value.length === 42) { 
                 const isContract = await isContractAddress(props.value);
 
-                if (isContract) {
+                if (isContract && isMounted.current) {
                     setIsContract(isContract);
                 }
                 else { 
                     const nameOrAddress = await getEnsNameOrAddress(props.value);
-                    setAccountAddress(nameOrAddress);
+                    if (isMounted.current)
+                        setAccountAddress(nameOrAddress);
                 }
             }
             
-            setLoading(false);
+            if (isMounted.current)
+                setLoading(false);
         }
         
         asyncEffect();
+
+        return () => { 
+            isMounted.current = false;
+        }
     }, [props.value]);
 
     if (loading) {
