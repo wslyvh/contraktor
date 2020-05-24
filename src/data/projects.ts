@@ -95,45 +95,112 @@ const ALL_PROJECT_DATA = [
 		}]
 	},
 	{
-		"name": "ERC20 Tokens",
+		"name": "ERC20",
 		"logoPath": ERC20,
 		"contracts": [{
+			"name": "BAT",
+			"abi": legos.erc20.bat.abi,
+			"addresses": [
+				{ "network": "mainnet", "address": "0x0D8775F648430679A709E98d2b0Cb6250d2887EF" },
+				{ "network": "ropsten", "address": "0x85B24b3517E3aC7bf72a14516160541A60cFF19d" },
+				{ "network": "kovan", "address": '0x2d12186Fbb9f9a8C28B3FfdD4c42920f8539D738' }
+			]
+		}, {
 			"name": "DAI",
 			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.erc20.dai.address},
+				{ "network": "mainnet", "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F" },
 				{ "network": "ropsten", "address": "0xf80A32A835F79D7787E8a8ee5721D0fEaFd78108" },
-				{ "network": "kovan", "address": '0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD' },
+				{ "network": "kovan", "address": "0xFf795577d9AC8bD7D90Ee22b6C1703490b6512FD" },
+				{ "network": "rinkeby", "address": "0x5592ec0cfb4dbc12d3ab100b257153436a1f0fea"}
 			]
 		}, {
-			"name": "BAT",
+			"name": "KNC",
 			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.erc20.bat.address }
+				{ "network": "mainnet", "address": "0xdd974D5C2e2928deA5F71b9825b8b646686BD200" },
+				{ "network": "ropsten", "address": "0xCe4aA1dE3091033Ba74FA2Ad951f6adc5E5cF361" },
+				{ "network": "kovan", "address": '0x3F80c39c0b96A0945f9F0E9f55d8A8891c5671A8' }
+			]
+		}, {
+			"name": "LINK",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0x514910771AF9Ca656af840dff83E8264EcF986CA" },
+				{ "network": "ropsten", "address": "0x1a906E71FF9e28d8E01460639EB8CF0a6f0e2486" },
+				{ "network": "kovan", "address": '0xAD5ce863aE3E4E9394Ab43d4ba0D80f419F61789' },
+				{ "network": "rinkeby", "address": "0x01be23585060835e02b77ef475b0cc51aa1e0709"}
+			]
+		}, {
+			"name": "MKR",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2" },
+				{ "network": "ropsten", "address": "0x2eA9df3bABe04451c9C3B06a2c844587c59d9C37" },
+				{ "network": "kovan", "address": '0x61e4CAE3DA7FD189e52a4879C7B8067D7C2Cc0FA' }
+			]
+		}, {
+			"name": "SNX",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F" },
+				{ "network": "kovan", "address": '0x7FDb81B0b8a010dd4FFc57C3fecbf145BA8Bd947' }
 			]
 		}, {
 			"name": "REP",
 			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.erc20.rep.address }
+				{ "network": "mainnet", "address": "0x1985365e9f78359a9B6AD760e32412f4a445E862" },
+				{ "network": "ropsten", "address": "0xBeb13523503d35F9b3708ca577CdCCAdbFB236bD" },
+				{ "network": "kovan", "address": '0x260071C8D61DAf730758f8BD0d6370353956AE0E' }
+			]
+		}, {
+			"name": "TUSD",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0x0000000000085d4780B73119b644AE5ecd22b376" },
+				{ "network": "ropsten", "address": "0xa51EE1845C13Cb03FcA998304b00EcC407fc1F92" },
+				{ "network": "kovan", "address": '0x1c4a937d171752e1313D70fb16Ae2ea02f86303e' }
 			]
 		}, {
 			"name": "USDC",
 			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.erc20.usdc.address }
+				{ "network": "mainnet", "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" },
+				{ "network": "ropsten", "address": "0x851dEf71f0e6A903375C1e536Bd9ff1684BAD802" },
+				{ "network": "kovan", "address": '0xe22da380ee6B445bb8273C81944ADEB6E8450422' }
+			]
+		}, {
+			"name": "USDT",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7" },
+				{ "network": "ropsten", "address": "0xB404c51BBC10dcBE948077F18a4B8E553D160084" },
+				{ "network": "kovan", "address": '0x13512979ADE267AB5100878E2e0f485B568328a4' }
+			]
+		}, {
+			"name": "WBTC",
+			"abi": ERC20_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599" },
+				{ "network": "ropsten", "address": "0xa0E54Ab6AA5f0bf1D62EC3526436F3c05b3348A0" },
+				{ "network": "kovan", "address": '0x3b92f58feD223E2cB1bCe4c286BD97e42f2A12EA' }
 			]
 		}, {
 			"name": "WETH",
 			"abi": legos.erc20.weth.abi,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.erc20.weth.address }
+				{ "network": "mainnet", "address": legos.erc20.weth.address },
+				{ "network": "rinkeby", "address": "0xc778417e063141139fce010982780140aa0cd5ab"}
 			]
 		}, {
 			"name": "ZRX",
 			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": legos.erc20.zrx.address }
+				{ "network": "mainnet", "address": "0xE41d2489571d322189246DaFA5ebDe1F4699F498" },
+				{ "network": "ropsten", "address": "0x02d7055704EfF050323A2E5ee4ba05DB2A588959" },
+				{ "network": "kovan", "address": '0xD0d76886cF8D952ca26177EB7CfDf83bad08C00C' },
+				{ "network": "rinkeby", "address": '0xddea378a6ddc8afec82c36e9b0078826bf9e68b6' }
 			]
 		}]
 	},
