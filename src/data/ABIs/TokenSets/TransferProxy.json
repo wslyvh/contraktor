@@ -1,0 +1,231 @@
+[{
+	"constant": true,
+	"inputs": [{
+		"name": "",
+		"type": "bytes32"
+	}],
+	"name": "timeLockedUpgrades",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_authTarget",
+		"type": "address"
+	}],
+	"name": "addAuthorizedAddress",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"name": "authorities",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_authTarget",
+		"type": "address"
+	}],
+	"name": "removeAuthorizedAddress",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_tokens",
+		"type": "address[]"
+	}, {
+		"name": "_quantities",
+		"type": "uint256[]"
+	}, {
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}],
+	"name": "batchTransfer",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [],
+	"name": "renounceOwnership",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "timeLockPeriod",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "owner",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "isOwner",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_timeLockPeriod",
+		"type": "uint256"
+	}],
+	"name": "setTimeLockPeriod",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_token",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}, {
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_to",
+		"type": "address"
+	}],
+	"name": "transfer",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"name": "authorized",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getAuthorizedAddresses",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "newOwner",
+		"type": "address"
+	}],
+	"name": "transferOwnership",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "authAddress",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "authorizedBy",
+		"type": "address"
+	}],
+	"name": "AddressAuthorized",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "addressRemoved",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "authorizedBy",
+		"type": "address"
+	}],
+	"name": "AuthorizedAddressRemoved",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "_upgradeHash",
+		"type": "bytes32"
+	}, {
+		"indexed": false,
+		"name": "_timestamp",
+		"type": "uint256"
+	}],
+	"name": "UpgradeRegistered",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "previousOwner",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "newOwner",
+		"type": "address"
+	}],
+	"name": "OwnershipTransferred",
+	"type": "event"
+}]

@@ -1,0 +1,190 @@
+[{
+	"constant": false,
+	"inputs": [{
+		"name": "_rebalancingSetAddress",
+		"type": "address"
+	}, {
+		"name": "_rebalancingSetQuantity",
+		"type": "uint256"
+	}, {
+		"name": "_keepChangeInVault",
+		"type": "bool"
+	}],
+	"name": "issueRebalancingSet",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_rebalancingSetAddress",
+		"type": "address"
+	}, {
+		"name": "_rebalancingSetQuantity",
+		"type": "uint256"
+	}, {
+		"name": "_keepChangeInVault",
+		"type": "bool"
+	}],
+	"name": "issueRebalancingSetWrappingEther",
+	"outputs": [],
+	"payable": true,
+	"stateMutability": "payable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "weth",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "vaultInstance",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "transferProxy",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "coreInstance",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_rebalancingSetAddress",
+		"type": "address"
+	}, {
+		"name": "_rebalancingSetQuantity",
+		"type": "uint256"
+	}, {
+		"name": "_keepChangeInVault",
+		"type": "bool"
+	}],
+	"name": "redeemRebalancingSet",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "core",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_rebalancingSetAddress",
+		"type": "address"
+	}, {
+		"name": "_rebalancingSetQuantity",
+		"type": "uint256"
+	}, {
+		"name": "_keepChangeInVault",
+		"type": "bool"
+	}],
+	"name": "redeemRebalancingSetUnwrappingEther",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "vault",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"inputs": [{
+		"name": "_core",
+		"type": "address"
+	}, {
+		"name": "_vault",
+		"type": "address"
+	}, {
+		"name": "_transferProxy",
+		"type": "address"
+	}, {
+		"name": "_weth",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "constructor"
+}, {
+	"payable": true,
+	"stateMutability": "payable",
+	"type": "fallback"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "rebalancingSetAddress",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "callerAddress",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "rebalancingSetQuantity",
+		"type": "uint256"
+	}],
+	"name": "LogRebalancingSetIssue",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "rebalancingSetAddress",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "callerAddress",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "rebalancingSetQuantity",
+		"type": "uint256"
+	}],
+	"name": "LogRebalancingSetRedeem",
+	"type": "event"
+}]

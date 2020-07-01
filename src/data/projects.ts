@@ -9,7 +9,10 @@ import {
 	ENS_Registry_ABI, 
 	Uniswap_Factory_ABI, 
 	Uniswap_Pair_ABI, 
-	Uniswap_Router01_ABI } from "../data/ABIs";
+	Uniswap_Router01_ABI, 
+	TokenSets_Roboset_ABI,
+	TokenSets_RebalancingSetIssuanceModule_ABI,
+	TokenSets_TransferProxy_ABI} from "../data/ABIs";
 
 const ALL_PROJECT_DATA = [
     {
@@ -253,6 +256,68 @@ const ALL_PROJECT_DATA = [
 			"addresses": [
 				{ "network": "mainnet", "address": '0xf55186CC537E7067EA616F2aaE007b4427a120C8' },
 				{ "network": "kovan", "address": '0x3ee64Fe0b9246Ae52845F01A79c4b3A6D252289a' },
+			]
+		}, {
+			"name": "ETH20SMACO",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0x9ea463Ec4cE9E9E5bc9cFd0187C4Ac3a70DD951D' },
+			]
+		}, {
+			"name": "ETH50SMACO",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xa360F2aF3F957906468c0FD7526391AeD08aE3DB' },
+			]
+		}, {
+			"name": "ETH12EMACO",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0x2c5a9980B41861D91D30d0E0271d1c093452DcA5' },
+			]
+		}, {
+			"name": "ETH26EMACO",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0x614857c755739354d68ae0abd53849cf45d6a41d' },
+			]
+		}, {
+			"name": "BTCETH5050",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xc06aEc5191bE16b94FfC97B6Fc01393527367365' },
+			]
+		}, {
+			"name": "BTCETH7525",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xA35Fc5019C4dc509394Bd4d74591a0bF8852c195' },
+			]
+		}, {
+			"name": "ETHBTC7525",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xA6c040045d962e4B8eFa00954c7d23CCd0a2b8AD' },
+			]
+		}, {
+			"name": "ETHBTCRSI",
+			"abi": TokenSets_Roboset_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xbf70A33A13fBe8D0106Df321Da0Cf654d2E9Ab50' },
+			]
+		}, {
+			"name": "RebalancingSetIssuanceModule",
+			"abi": TokenSets_RebalancingSetIssuanceModule_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0xceda8318522d348f1d1aca48b24629b8fbf09020' },
+				{ "network": "kovan", "address": '0x91E1489D04054Ae552a369504F94E0236909c53c' },
+			]
+		}, {
+			"name": "TransferProxy",
+			"abi": TokenSets_TransferProxy_ABI,
+			"addresses": [
+				{ "network": "mainnet", "address": '0x882d80d3a191859d64477eb78cca46599307ec1c' },
+				{ "network": "kovan", "address": '0x61d264865756751392C0f00357Cc26ea70D98E3B' },
 			]
 		}]
 	},

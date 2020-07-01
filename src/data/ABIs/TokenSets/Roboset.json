@@ -1,0 +1,736 @@
+[{
+	"constant": true,
+	"inputs": [],
+	"name": "unitShares",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getUnits",
+	"outputs": [{
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "name",
+	"outputs": [{
+		"name": "",
+		"type": "string"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "spender",
+		"type": "address"
+	}, {
+		"name": "value",
+		"type": "uint256"
+	}],
+	"name": "approve",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"name": "failedAuctionWithdrawComponents",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "rebalanceInterval",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "totalSupply",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_tokenAddress",
+		"type": "address"
+	}],
+	"name": "tokenIsComponent",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "from",
+		"type": "address"
+	}, {
+		"name": "to",
+		"type": "address"
+	}, {
+		"name": "value",
+		"type": "uint256"
+	}],
+	"name": "transferFrom",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "proposalPeriod",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "currentSet",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "decimals",
+	"outputs": [{
+		"name": "",
+		"type": "uint8"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "spender",
+		"type": "address"
+	}, {
+		"name": "addedValue",
+		"type": "uint256"
+	}],
+	"name": "increaseAllowance",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_issuer",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "mint",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "naturalUnit",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "startingCurrentSetAmount",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "manager",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [],
+	"name": "startRebalance",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getCombinedTokenArrayLength",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "biddingParameters",
+	"outputs": [{
+		"name": "minimumBid",
+		"type": "uint256"
+	}, {
+		"name": "remainingCurrentSets",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "owner",
+		"type": "address"
+	}],
+	"name": "balanceOf",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [],
+	"name": "endFailedAuction",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_nextSet",
+		"type": "address"
+	}, {
+		"name": "_auctionLibrary",
+		"type": "address"
+	}, {
+		"name": "_auctionTimeToPivot",
+		"type": "uint256"
+	}, {
+		"name": "_auctionStartPrice",
+		"type": "uint256"
+	}, {
+		"name": "_auctionPivotPrice",
+		"type": "uint256"
+	}],
+	"name": "propose",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getCombinedTokenArray",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "symbol",
+	"outputs": [{
+		"name": "",
+		"type": "string"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "auctionLibrary",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "placeBid",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}, {
+		"name": "",
+		"type": "uint256[]"
+	}, {
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getComponents",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "getBidPrice",
+	"outputs": [{
+		"name": "",
+		"type": "uint256[]"
+	}, {
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_from",
+		"type": "address"
+	}, {
+		"name": "_quantity",
+		"type": "uint256"
+	}],
+	"name": "burn",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getAuctionPriceParameters",
+	"outputs": [{
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getBiddingParameters",
+	"outputs": [{
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "spender",
+		"type": "address"
+	}, {
+		"name": "subtractedValue",
+		"type": "uint256"
+	}],
+	"name": "decreaseAllowance",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "to",
+		"type": "address"
+	}, {
+		"name": "value",
+		"type": "uint256"
+	}],
+	"name": "transfer",
+	"outputs": [{
+		"name": "",
+		"type": "bool"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "proposalStartTime",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "lastRebalanceTimestamp",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "factory",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "nextSet",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getCombinedNextSetUnits",
+	"outputs": [{
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [{
+		"name": "_newManager",
+		"type": "address"
+	}],
+	"name": "setManager",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "auctionPriceParameters",
+	"outputs": [{
+		"name": "auctionStartTime",
+		"type": "uint256"
+	}, {
+		"name": "auctionTimeToPivot",
+		"type": "uint256"
+	}, {
+		"name": "auctionStartPrice",
+		"type": "uint256"
+	}, {
+		"name": "auctionPivotPrice",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [{
+		"name": "owner",
+		"type": "address"
+	}, {
+		"name": "spender",
+		"type": "address"
+	}],
+	"name": "allowance",
+	"outputs": [{
+		"name": "",
+		"type": "uint256"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getFailedAuctionWithdrawComponents",
+	"outputs": [{
+		"name": "",
+		"type": "address[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "getCombinedCurrentUnits",
+	"outputs": [{
+		"name": "",
+		"type": "uint256[]"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "core",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "rebalanceState",
+	"outputs": [{
+		"name": "",
+		"type": "uint8"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": false,
+	"inputs": [],
+	"name": "settleRebalance",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "vault",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"constant": true,
+	"inputs": [],
+	"name": "componentWhiteListAddress",
+	"outputs": [{
+		"name": "",
+		"type": "address"
+	}],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+}, {
+	"inputs": [{
+		"name": "_factory",
+		"type": "address"
+	}, {
+		"name": "_manager",
+		"type": "address"
+	}, {
+		"name": "_initialSet",
+		"type": "address"
+	}, {
+		"name": "_initialUnitShares",
+		"type": "uint256"
+	}, {
+		"name": "_naturalUnit",
+		"type": "uint256"
+	}, {
+		"name": "_proposalPeriod",
+		"type": "uint256"
+	}, {
+		"name": "_rebalanceInterval",
+		"type": "uint256"
+	}, {
+		"name": "_componentWhiteList",
+		"type": "address"
+	}, {
+		"name": "_name",
+		"type": "string"
+	}, {
+		"name": "_symbol",
+		"type": "string"
+	}],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "constructor"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "newManager",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "oldManager",
+		"type": "address"
+	}],
+	"name": "NewManagerAdded",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "nextSet",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "auctionLibrary",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "proposalPeriodEndTime",
+		"type": "uint256"
+	}],
+	"name": "RebalanceProposed",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": false,
+		"name": "oldSet",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "newSet",
+		"type": "address"
+	}],
+	"name": "RebalanceStarted",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "from",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "to",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "value",
+		"type": "uint256"
+	}],
+	"name": "Transfer",
+	"type": "event"
+}, {
+	"anonymous": false,
+	"inputs": [{
+		"indexed": true,
+		"name": "owner",
+		"type": "address"
+	}, {
+		"indexed": true,
+		"name": "spender",
+		"type": "address"
+	}, {
+		"indexed": false,
+		"name": "value",
+		"type": "uint256"
+	}],
+	"name": "Approval",
+	"type": "event"
+}]
