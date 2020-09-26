@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactTooltip from "react-tooltip";
 import { useWeb3React } from '@web3-react/core';
 import { generate } from 'shortid';
 import { FullContractWrapper } from '../types';
@@ -28,10 +29,6 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         setInputValues(values);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    if (props.inputs?.length === 0) {
-        return <></>
-    }
 
     function handleChange(event: any) {
         if (!inputValues) return;
@@ -80,18 +77,22 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         </div>
     )
 
-    let executeButton = <></>
-    if (context.account || props.readOnly) {
-        executeButton = 
-            <div className="form-group row">
-                <label className="col-sm-2 col-form-label" />
-                <div className="col-sm-10">
-                    <button type="button" className="btn btn-info btn-sm" onClick={onExecuteMember}>
+    let isExecuteDisabled = !(context.account || props.readOnly);
+
+    let executeButton =
+        <div className="form-group row">
+            <label className="col-sm-2 col-form-label"/>
+            <div className="col-sm-10">
+                <span data-tip={"connect you web3 account"} data-tip-disable={!isExecuteDisabled}>
+                    <button type="button" className="btn btn-info btn-sm" onClick={onExecuteMember}
+                            disabled={isExecuteDisabled}>
                         execute
                     </button>
-                </div>
+                </span>
+                <ReactTooltip place="top" type="dark" effect="float"/>
             </div>
-    }
+        </div>
+
 
     let renderOutput = <></>
     if (output) { 
