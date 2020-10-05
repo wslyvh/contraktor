@@ -177,7 +177,7 @@ const ALL_PROJECT_DATA = [
 			"name": "USDT",
 			"abi": ERC20_ABI,
 			"addresses": [
-				{ "network": "mainnet", "address": "0xdac17f958d2ee523a2206206994597c13d831ec7" },
+				{ "network": "mainnet", "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7" },
 				{ "network": "ropsten", "address": "0xB404c51BBC10dcBE948077F18a4B8E553D160084" },
 				{ "network": "kovan", "address": '0x13512979ADE267AB5100878E2e0f485B568328a4' }
 			]
