@@ -7,6 +7,7 @@ import { Loading } from '.';
 import { ContractMembersCard } from './ContractMembersCard';
 import { ContractStateCard } from './ContractStateCard';
 import { NetworkAddresses } from './NetworkAddresses';
+import { EventFragment, FunctionFragment } from 'ethers/utils';
 
 declare let document: any;
 
@@ -34,17 +35,22 @@ export const ContractDetails = (props: ContractProps) => {
     const events = contract.interface.abi.filter((member: any) => member.type === "event");
     const fallback = contract.interface.abi.filter((member: any) => member.type === "receive");
     
-    const executableConstants = constants.filter(i => i.inputs?.length === 0).map(async i => {
-      let value;
+    const executableConstants = constants.filter(i => i.inputs?.length === 0).map(async (i: EventFragment | FunctionFragment) => {
+      let value, type;
       try { 
         value = await contract.functions[i.name]();
+        const functionFragment = i as FunctionFragment;
+        if (functionFragment && functionFragment.outputs?.length > 0) {
+          type = functionFragment.outputs[0].type;
+        }
       } catch (ex) { 
         console.log("ERROR", ex)
         value = "[error retrieving value]"
       }
       return {
         name: i.name,
-        value: value
+        value: value,
+        type: type,
       };
     });
 

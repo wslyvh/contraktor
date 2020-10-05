@@ -10,7 +10,7 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
     
     const renderMemberItems = props.members.map((member: any, i: number) => (
         <tr key={generate()}>
-            <th scope="row">{member.name}</th>
+            <th scope="row">{member.name} <small>({member.type})</small></th>
             <td>
                 <ContractValue value={member.value} />
             </td>
