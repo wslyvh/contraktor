@@ -21,8 +21,9 @@ export const INJECTED_ETHEREUM_CONNECTOR = useInjectedChain(DEFAULT_ETHEREUM_CHA
  *
  * @param {Object} context get from useWeb3React()
  * @param {InjectedConnector} connector (optional, default as Injected connector for Ethereum chains)
- * @returns {[boolean, Callback]} tried ui reference to determine if we've tried to connect to the injected connector;
- * connectWeb3 function call to connect by click
+ * @returns {Array} [boolean, Callback]
+ * 1st. tried (boolean) help determine if we've tried to connect to the injected connector;
+ * 2nd. connectWeb3 (function) support call to connect by manual click
  *
  * Usage:
  *
