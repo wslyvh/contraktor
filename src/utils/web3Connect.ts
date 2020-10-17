@@ -4,7 +4,7 @@ import { InjectedConnector } from "@web3-react/injected-connector";
 import { Web3ReactContextInterface } from './types';
 
 // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md
-export const defaultEthereumChainIds = [1, 3, 4, 5, 42];
+export const DEFAULT_ETHEREUM_CHAIN_IDS = [1, 3, 4, 5, 42];
 
 /**
  * Specify support inject chains.
@@ -14,7 +14,7 @@ export const defaultEthereumChainIds = [1, 3, 4, 5, 42];
 export const useInjectedChain = (supportedChainIds: number[]) =>
     new InjectedConnector({supportedChainIds});
 
-export const INJECTED_ETHEREUM_CONNECTOR = useInjectedChain(defaultEthereumChainIds);
+export const INJECTED_ETHEREUM_CONNECTOR = useInjectedChain(DEFAULT_ETHEREUM_CHAIN_IDS);
 
 /**
  * Wrap connect operation to web3
