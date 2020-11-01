@@ -40,7 +40,7 @@ function useWeb3Modal(config = {
 			const gotAccount = await signer.getAddress();
 			setAccount(gotAccount);
 		}
-		getAccount();
+		provider && getAccount();
 	}, [provider]);
 
   // Open wallet selection modal.

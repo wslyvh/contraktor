@@ -17,7 +17,7 @@ export const AccountControl = () => {
 			logoutOfWeb3Modal();
 	  }
 	}
-	if (provider) {
+	if (account) {
 			return <AccountInfo address={account} />
 	}
 
