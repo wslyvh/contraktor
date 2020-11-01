@@ -10,13 +10,13 @@ const INFURA_ID = "INVALID_INFURA_KEY";
 const NETWORK_NAME = "mainnet";
 
 function useWeb3Modal(config = {
-	autoLoad: true,
-	infuraId: INFURA_ID,
-	NETWORK: NETWORK_NAME
+  autoLoad: true,
+  infuraId: INFURA_ID,
+  NETWORK: NETWORK_NAME
 }) {
   const [provider, setProvider] = useState();
-	const [account, setAccount] = useState('');
-	const { autoLoad, infuraId, NETWORK } = config;
+  const [account, setAccount] = useState('');
+  const { autoLoad, infuraId, NETWORK } = config;
 
   // Web3Modal also supports many other wallets.
   // You can see other options at https://github.com/Web3Modal/web3modal
@@ -33,15 +33,15 @@ function useWeb3Modal(config = {
     },
   });
 
-	// get connected account address
-	useEffect(() => {
-		async function getAccount() {
-			const signer = provider.getSigner();
-			const gotAccount = await signer.getAddress();
-			setAccount(gotAccount);
-		}
-		provider && getAccount();
-	}, [provider]);
+  // get connected account address
+  useEffect(() => {
+    async function getAccount() {
+      const signer = provider.getSigner();
+      const gotAccount = await signer.getAddress();
+      setAccount(gotAccount);
+    }
+    provider && getAccount();
+  }, [provider]);
 
   // Open wallet selection modal.
   const loadWeb3Modal = useCallback(async () => {
@@ -65,11 +65,11 @@ function useWeb3Modal(config = {
   }, [autoLoad, loadWeb3Modal, web3Modal.cachedProvider]);
 
   return {
-		provider,
-		loadWeb3Modal,
-		logoutOfWeb3Modal,
-		account
-	};
+    provider,
+    loadWeb3Modal,
+    logoutOfWeb3Modal,
+    account
+  };
 }
 
 export default useWeb3Modal;
