@@ -16,7 +16,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
 
     let collapsablePanel = <></>
     if (show) { 
-        collapsablePanel = <ContractMemberForm contract={props.contract} name={props.member.name} inputs={props.member.inputs} readOnly={props.type === "views"} />
+        collapsablePanel = <ContractMemberForm contract={props.contract} name={props.member.name} inputs={props.member.inputs} readOnly={props.type === "views"} payable={props.type === "payable"} />
     }
 
     let renderInputs = <></>

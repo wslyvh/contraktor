@@ -3,6 +3,7 @@ import ReactTooltip from "react-tooltip";
 import { useWeb3React } from '@web3-react/core';
 import { generate } from 'shortid';
 import { FullContractWrapper } from '../types';
+import { ethers } from 'ethers';
 
 declare let refs: any;
 
@@ -10,12 +11,14 @@ interface ContractMemberFormProps {
     contract: FullContractWrapper
     name: string
     readOnly?: boolean
+    payable?: boolean
     inputs?: any[]
 }
 
 export const ContractMemberForm = (props: ContractMemberFormProps) => {
     const context = useWeb3React();
     const [output, setOutput] = useState("");
+    const [value, setValue] = useState("");
     const [inputValues, setInputValues] = useState(props.inputs);
 
     useEffect(() => {
@@ -42,7 +45,14 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         const args = [];
         for (let i = 0; i < inputValues?.length; i++) {
             const element = inputValues[i];
-            args.push(element.value);
+
+            if (element.type.slice(-2) === '[]') {
+                const asArray = [element.value]
+                args.push(asArray);
+            }
+            else { 
+                args.push(element.value);
+            }
         }
 
         try { 
@@ -50,6 +60,10 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
             if (!props.readOnly) { 
                 overrides = { gasLimit: 250000 }
             }
+            if (props.payable) { 
+                overrides = {...overrides, value: ethers.utils.parseEther(value)}
+            }
+            
             const response = await props.contract.ethersContract.functions[props.name](...args, overrides);
             if (response?.hash) { 
                 setOutput("Transaction send. Hash: " + response.hash)
@@ -92,7 +106,20 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
                 <ReactTooltip place="top" type="dark" effect="float"/>
             </div>
         </div>
-
+    
+    let payableInput = <></>
+    if (props.payable) {
+        payableInput = 
+        <div className="form-group row">
+            <label htmlFor="payable" className="col-sm-2 col-form-label">
+                <span data-tip={"value in ETH"}>value <small>(payable)</small></span>
+                <ReactTooltip place="top" type="dark" effect="float"/>
+            </label>
+            <div className="col-sm-10">
+                <input type="text" className="form-control" id="payable" defaultValue={value} onChange={(e) => setValue(e.target.value)} />
+            </div>
+        </div>
+    }
 
     let renderOutput = <></>
     if (output) { 
@@ -105,6 +132,8 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
             <hr />
 
             {inputFields}
+
+            {payableInput}
 
             {executeButton}
 

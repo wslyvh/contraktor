@@ -114,8 +114,8 @@ export const ContractDetails = (props: ContractProps) => {
           <ContractStateCard members={contractState} />
           <ContractMembersCard type="constructor" contract={props.contract} members={functions.ctor} />
           <ContractMembersCard type="views" contract={props.contract} members={functions.constants.filter(i => i.inputs?.length > 0)} />
-          <ContractMembersCard type="functions" contract={props.contract} members={functions.functions.filter(i => !i.payable)} />
-          <ContractMembersCard type="payable" contract={props.contract} members={functions.functions.filter(i => i.payable)} />
+          <ContractMembersCard type="functions" contract={props.contract} members={functions.functions.filter(i => !i.payable && i.stateMutability !== 'payable')} />
+          <ContractMembersCard type="payable" contract={props.contract} members={functions.functions.filter(i => i.payable || i.stateMutability === 'payable')} />
           <ContractMembersCard type="events" contract={props.contract} members={functions.events} />
           <ContractMembersCard type="fallback" contract={props.contract} members={functions.fallback} />
         </div>
