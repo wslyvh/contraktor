@@ -9,7 +9,7 @@ export const AccountControl = () => {
     loadWeb3Modal,
     logoutOfWeb3Modal,
 	] = useWeb3Modal();
-	const [account] = useUserAddress(provider);
+	const [account] = useUserAddress();
 
 	const onClick = () => {
     if (!provider) {
@@ -23,6 +23,6 @@ export const AccountControl = () => {
   }
 
   return <button type="button" className="btn btn-outline-info btn-sm" onClick={onClick}>
-    {!provider ? "Connect Wallet" : "Disconnect Wallet"}
+    {"Connect Wallet"}
   </button>
 }
