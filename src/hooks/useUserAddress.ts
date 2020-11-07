@@ -8,10 +8,10 @@ function useUserAddress() {
 
   useEffect(() => {
     async function getAccount() {
-    const signer = provider.getSigner();
-    const gotAccount = await signer.getAddress();
-    setAccount(gotAccount);
-  }
+      const signer = provider.getSigner();
+      const gotAccount = await signer.getAddress();
+      setAccount(gotAccount);
+    }
     provider && getAccount();
   }, [provider]);
   return [account];
