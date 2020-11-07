@@ -1,15 +1,17 @@
 import React from 'react';
 import { AccountInfo } from './AccountInfo';
 import useWeb3Modal from "../hooks/useWeb3Modal";
+import useUserAddress from '../hooks/useUserAddress';
 
 export const AccountControl = () => {
-  const {
-    account,
+  const [
     provider,
     loadWeb3Modal,
     logoutOfWeb3Modal,
-  } = useWeb3Modal();
-  const onClick = () => {
+	] = useWeb3Modal();
+	const [account] = useUserAddress(provider);
+
+	const onClick = () => {
     if (!provider) {
       loadWeb3Modal();
     } else {

@@ -15,7 +15,6 @@ function useWeb3Modal(config = {
   NETWORK: NETWORK_NAME
 }) {
   const [provider, setProvider] = useState();
-  const [account, setAccount] = useState('');
   const { autoLoad, infuraId, NETWORK } = config;
 
   // Web3Modal also supports many other wallets.
@@ -33,15 +32,6 @@ function useWeb3Modal(config = {
     },
   });
 
-  // get connected account address
-  useEffect(() => {
-    async function getAccount() {
-      const signer = provider.getSigner();
-      const gotAccount = await signer.getAddress();
-      setAccount(gotAccount);
-    }
-    provider && getAccount();
-  }, [provider]);
 
   // Open wallet selection modal.
   const loadWeb3Modal = useCallback(async () => {
@@ -64,12 +54,11 @@ function useWeb3Modal(config = {
     }
   }, [autoLoad, loadWeb3Modal, web3Modal.cachedProvider]);
 
-  return {
+  return [
     provider,
     loadWeb3Modal,
-    logoutOfWeb3Modal,
-    account
-  };
+    logoutOfWeb3Modal
+  ];
 }
 
 export default useWeb3Modal;
