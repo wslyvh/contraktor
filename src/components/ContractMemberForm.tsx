@@ -47,13 +47,14 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
             const element = inputValues[i];
 
             if (element.type.slice(-2) === '[]') {
-                const asArray = [element.value]
-                args.push(asArray);
+                const split = element.value.replace(' ', '').split(',');
+                args.push(split);
             }
             else { 
                 args.push(element.value);
             }
         }
+
 
         try { 
             let overrides: any = {}
@@ -64,6 +65,8 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
                 overrides = {...overrides, value: ethers.utils.parseEther(value)}
             }
             
+            console.log("BEFORE SEND")
+        console.log(args);
             const response = await props.contract.ethersContract.functions[props.name](...args, overrides);
             if (response?.hash) { 
                 setOutput("Transaction send. Hash: " + response.hash)
