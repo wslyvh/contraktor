@@ -112,7 +112,7 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         payableInput = 
         <div className="form-group row">
             <label htmlFor="payable" className="col-sm-2 col-form-label">
-                <span data-tip={"value in ETH"}>value <small>(payable)</small></span>
+                <span data-tip={"Use Payable functions at your own risk!"}>value <small>(in ETH)</small></span>
                 <ReactTooltip place="top" type="dark" effect="float"/>
             </label>
             <div className="col-sm-10">
