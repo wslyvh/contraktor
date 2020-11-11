@@ -46,7 +46,10 @@ export const ContractPage = () => {
   } 
   
   if (!contract) { 
-    return <Notification type="info" message={"Contract not found. Check your contract address & network"} />
+    return <>
+      <Notification type="info" message={"Contract not found. Check your contract address & network"} />
+      <p>Make sure your contracts are verified. Need help? Please go to <a href="https://etherscan.io/verifyContract">Etherscan</a>.</p>
+    </>
   }
 
   return (
