@@ -22,3 +22,7 @@ In the project directory, you can run:
 - `npm build` to create a production build. Output can be found in the `build` folder.
 
 More info on [Create React App](https://github.com/facebook/create-react-app).
+
+---
+
+![Deploys by Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)
