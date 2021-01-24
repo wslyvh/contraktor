@@ -12,6 +12,8 @@ export function getNetworkName(chainId: number): string {
       return "rinkeby";
     case 5:
       return "goerli";
+    case 100:
+      return "xdai";
   }
 
   return "mainnet"
@@ -29,6 +31,8 @@ export function getNetworkColor(network: string): string {
       return "warning";
     case "goerli":
       return "dark";
+    case "xdai":
+      return "light";
   }
 
   return "info"
@@ -44,6 +48,8 @@ export function getEtherscanLink(address: Address): string {
       return "https://rinkeby.etherscan.io/address/" + address.address
     case "goerli":
       return "https://goerli.etherscan.io/address/" + address.address
+    case "xdai":
+      return "https://blockscout.com/poa/xdai/address/" + address.address
   }
 
   return "https://www.etherscan.io/address/" + address.address

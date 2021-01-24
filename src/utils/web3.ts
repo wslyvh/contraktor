@@ -35,7 +35,10 @@ export async function getEnsNameOrAddress(address: string, shorten?: boolean, pr
     return address;
 }
 
-export function getProvider(network?: "homestead" | "rinkeby" | "ropsten" | "kovan" | "goerli"): BaseProvider { 
+export function getProvider(network?: "homestead" | "rinkeby" | "ropsten" | "kovan" | "goerli" | "xdai"): BaseProvider { 
+    if (network === 'xdai') { 
+      return new ethers.providers.JsonRpcProvider('https://rpc.xdaichain.com/');
+    }
     if (network) {
         return ethers.getDefaultProvider(network);
     }
@@ -44,7 +47,7 @@ export function getProvider(network?: "homestead" | "rinkeby" | "ropsten" | "kov
 }
 
 export const Injected = new InjectedConnector({
-    supportedChainIds: [1, 3, 4, 5, 42]
+    supportedChainIds: [1, 3, 4, 5, 42, 100]
 });
 
 export function parseEther(wei: number): string { 
