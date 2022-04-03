@@ -11,7 +11,7 @@ A smart contract explorer.
 [![Netlify Status](https://api.netlify.com/api/v1/badges/7d380e38-a3ed-4da2-85ee-7574c3ed5275/deploy-status)](https://app.netlify.com/sites/contraktor/deploys)
 
 * Repo: https://github.com/wslyvh/contraktor
-* Live demo: https://ethcontract.watch/
+* Live demo: https://ethcontract.watch/ (https://contraktor.netlify.app)
 
 ## Development
 
